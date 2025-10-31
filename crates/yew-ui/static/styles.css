@@ -220,6 +220,43 @@ input[type="file"]:hover {
     font-size: 20px;
 }
 
+/* Hardware Info Section */
+.hardware-info {
+    text-align: center;
+}
+
+.hardware-info h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.hardware-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    margin-bottom: 12px;
+}
+
+.image-attribution {
+    font-size: 12px;
+    color: #7f8c8d;
+    margin-top: 8px;
+}
+
+.image-attribution a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.image-attribution a:hover {
+    color: #5dade2;
+    text-decoration: underline;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     main.grid {

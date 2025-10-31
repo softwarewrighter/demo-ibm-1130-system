@@ -4,7 +4,7 @@ A historically accurate simulator for the IBM 1130 computer system, written in R
 
 ## Live Demo
 
-**[Try the live demo →](https://softwarewrighter.github.io/demo-ibm-1130-system/)**
+**[Try the live demo ->](https://softwarewrighter.github.io/demo-ibm-1130-system/)**
 
 ![IBM 1130 Disk Simulator Screenshot](images/screenshot.png)
 
@@ -159,6 +159,12 @@ Comprehensive documentation is available in the [`documentation/`](documentation
 Copyright (c) 2025 Michael A. Wright
 
 Licensed under the MIT License. See [LICENSE](LICENSE) file for details.
+
+### Media Licenses
+
+This project includes media files licensed under Creative Commons:
+
+- **IBM 2315 Disk Cartridge Photo**: ["Disk Cartridge 2315 type"](https://commons.wikimedia.org/wiki/File:Disk_Cartridge_2315_type.jb.jpg) by James Berlin is licensed under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). See [`licensed-media/LICENSE-CC-BY-SA-3.0.txt`](licensed-media/LICENSE-CC-BY-SA-3.0.txt) for full attribution.
 
 ## Contributing
 

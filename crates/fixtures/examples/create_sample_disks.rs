@@ -2,7 +2,7 @@
 //
 // Run with: cargo run --example create_sample_disks
 
-use core_sim::disk::{file_io, Geometry};
+use core_sim::disk::{Geometry, file_io};
 use std::path::Path;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -29,7 +29,11 @@ fn create_blank_disk() -> Result<(), Box<dyn std::error::Error>> {
     let geo = Geometry::IBM2315;
     let data = vec![0u16; geo.total_words()];
 
-    file_io::write_dsk_file(Path::new("crates/fixtures/data/disks/blank_disk.dsk"), geo, &data)?;
+    file_io::write_dsk_file(
+        Path::new("crates/fixtures/data/disks/blank_disk.dsk"),
+        geo,
+        &data,
+    )?;
 
     println!("   ✓ Created: 512,000 words, all zeros");
     Ok(())
@@ -46,8 +50,8 @@ fn create_test_data_disk() -> Result<(), Box<dyn std::error::Error>> {
     let words_per_sector = 321;
 
     // Sector 0: Sequential numbers
-    for i in 0..320 {
-        data[i] = i as u16;
+    for (i, item) in data.iter_mut().enumerate().take(320) {
+        *item = i as u16;
     }
 
     // Sector 1: Powers of 2
@@ -77,7 +81,11 @@ fn create_test_data_disk() -> Result<(), Box<dyn std::error::Error>> {
         data[cyl10_offset + i] = 0x1000 + i as u16;
     }
 
-    file_io::write_dsk_file(Path::new("crates/fixtures/data/disks/test_data.dsk"), geo, &data)?;
+    file_io::write_dsk_file(
+        Path::new("crates/fixtures/data/disks/test_data.dsk"),
+        geo,
+        &data,
+    )?;
 
     println!("   ✓ Created: Test data in cylinders 0 and 10");
     Ok(())
@@ -99,9 +107,10 @@ fn create_pattern_disk() -> Result<(), Box<dyn std::error::Error>> {
         for head in 0..tracks_per_cylinder {
             for sector in 0..sectors_per_track {
                 // Calculate base offset for this sector
-                let sector_index = (cyl as usize * tracks_per_cylinder as usize * sectors_per_track as usize)
-                    + (head as usize * sectors_per_track as usize)
-                    + sector as usize;
+                let sector_index =
+                    (cyl as usize * tracks_per_cylinder as usize * sectors_per_track as usize)
+                        + (head as usize * sectors_per_track as usize)
+                        + sector as usize;
 
                 let base_offset = sector_index * words_per_sector;
 
@@ -111,7 +120,7 @@ fn create_pattern_disk() -> Result<(), Box<dyn std::error::Error>> {
                     for i in 0..320 {
                         if i % 2 == 0 {
                             // Encode cylinder and head in the data
-                            data[base_offset + i] = ((cyl as u16) << 8) | (head as u16);
+                            data[base_offset + i] = (cyl << 8) | (head as u16);
                         }
                     }
                 }

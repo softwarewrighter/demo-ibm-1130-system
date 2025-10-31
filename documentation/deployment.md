@@ -9,7 +9,7 @@ The live demo is hosted via GitHub Pages using the **main branch, `/docs` direct
 ### Initial Setup
 
 1. **Enable GitHub Pages** in your repository settings:
-   - Go to Settings → Pages
+   - Go to Settings -> Pages
    - Source: Deploy from a branch
    - Branch: `main`
    - Folder: `/docs`
@@ -89,7 +89,7 @@ docs/
    ```
 
 5. **Wait for GitHub Pages to deploy** (usually < 1 minute)
-   - Check deployment status: Settings → Pages
+   - Check deployment status: Settings -> Pages
    - Visit: https://softwarewrighter.github.io/demo-ibm-1130-system/
 
 ## Directory Structure

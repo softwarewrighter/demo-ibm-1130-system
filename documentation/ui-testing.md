@@ -290,7 +290,7 @@ Using Playwright, verify:
 Test: Tab navigation
 1. Navigate to page
 2. Press Tab repeatedly
-3. Verify focus moves through: file input → sectors → tooltip
+3. Verify focus moves through: file input -> sectors -> tooltip
 4. Verify visible focus indicators (2px blue outline)
 ```
 

@@ -6,7 +6,7 @@
 
 The project has completed core simulation infrastructure and has a working web-based UI for disk visualization. Currently focused on testing, deployment, and enhancing user experience.
 
-## Milestones Completed ✅
+## Milestones Completed [DONE]
 
 ### Milestone 1: Core Infrastructure (Completed)
 - [x] Cargo workspace with three crates (core-sim, yew-ui, fixtures)
@@ -50,7 +50,7 @@ The project has completed core simulation infrastructure and has a working web-b
 ## Core Simulation Status
 
 ### IBM 2310 (2315 Disk Cartridge)
-**Status**: Fully Implemented ✅
+**Status**: Fully Implemented [DONE]
 
 Implemented features:
 - Geometry: 200 cylinders, 2 heads, 4 sectors/track, 321 words/sector
@@ -63,7 +63,7 @@ Implemented features:
 - Complete test coverage (48 tests)
 
 ### IBM 2311 (1316 Disk Pack)
-**Status**: Not Started ⏳
+**Status**: Not Started [PENDING]
 
 Planned features:
 - Geometry: 203 cylinders, 10 heads, 10 sectors/track
@@ -71,7 +71,7 @@ Planned features:
 - Different timing characteristics
 
 ### IBM 1442 Card Reader/Punch
-**Status**: Placeholder UI ⏳
+**Status**: Placeholder UI [PENDING]
 
 Current state:
 - UI component exists with hopper/stacker display
@@ -79,19 +79,19 @@ Current state:
 - Planned for Milestone 6
 
 ### IBM 1403 Line Printer
-**Status**: Not Started ⏳
+**Status**: Not Started [PENDING]
 
 ### IBM 1133 Multiplexor
-**Status**: Not Started ⏳
+**Status**: Not Started [PENDING]
 
 ## Web UI Status
 
 ### Disk Map Visualization
-**Status**: Fully Functional ✅
+**Status**: Fully Functional [DONE]
 
 Features:
 - Grid layout showing cylinders/heads/sectors
-- Every 10th cylinder displayed for clarity (20 rows × 2 heads)
+- Every 10th cylinder displayed for clarity (20 rows x 2 heads)
 - Color-coded sectors based on data content
 - Hover tooltips showing coordinates
 - File upload with validation
@@ -99,7 +99,7 @@ Features:
 - Error handling and user feedback
 
 ### Card Reader/Punch Interface
-**Status**: Basic UI ⏳
+**Status**: Basic UI [PENDING]
 
 Current state:
 - UI component with card counts
@@ -107,7 +107,7 @@ Current state:
 - Needs .deck format integration
 
 ### System Status Bar
-**Status**: Basic Implementation ⏳
+**Status**: Basic Implementation [PENDING]
 
 Current features:
 - Device status (Ready/Busy)
@@ -134,7 +134,7 @@ Current features:
   - Block addressing: 11 tests
 
 ### UI Tests
-- **Playwright/MCP Tests**: All passing ✅
+- **Playwright/MCP Tests**: All passing [DONE]
   - Page navigation and rendering
   - Disk geometry display
   - Grid visualization structure
@@ -151,7 +151,7 @@ Current features:
 ## Deployment
 
 ### GitHub Pages
-**Status**: Configured, Ready to Enable ✅
+**Status**: Configured, Ready to Enable [DONE]
 
 Setup:
 - Built WASM application in `/docs` directory
@@ -160,7 +160,7 @@ Setup:
 - Port 1130 for local development
 - Ready for deployment at: https://softwarewrighter.github.io/demo-ibm-1130-system/
 
-**Action Required**: Enable in GitHub Settings → Pages → Branch: main, Folder: /docs
+**Action Required**: Enable in GitHub Settings -> Pages -> Branch: main, Folder: /docs
 
 ### Local Development
 - Development server: http://localhost:1130
@@ -194,7 +194,7 @@ Setup:
 - **Lines of Code**: ~3,500+ (core-sim: ~2,500, yew-ui: ~1,000)
 - **Test Coverage**: 90 tests, comprehensive for core features
 - **Documentation**: 12/12 files complete
-- **Build Status**: Passing ✅
+- **Build Status**: Passing [DONE]
 - **Crates**: 3 (core-sim: complete, yew-ui: functional, fixtures: scaffolded)
 - **WASM Build**: 353KB optimized
 
