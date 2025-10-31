@@ -1250,8 +1250,11 @@ name = "yew-ui"
 version = "0.1.0"
 dependencies = [
  "console_error_panic_hook",
+ "core-sim",
  "gloo 0.11.0",
  "serde",
  "wasm-bindgen",
+ "wasm-bindgen-futures",
+ "web-sys",
  "yew",
 ]
