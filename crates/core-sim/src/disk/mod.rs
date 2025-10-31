@@ -3,6 +3,7 @@
 //! This module provides traits and types for simulating IBM 1130 disk drives,
 //! including the IBM 2310 (2315 cartridge) and IBM 2311 (1316 disk pack).
 
+pub mod file_io;
 pub mod ibm2310;
 pub mod ibm2311;
 
