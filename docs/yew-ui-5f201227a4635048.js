@@ -249,16 +249,16 @@ function makeMutClosure(arg0, arg1, dtor, f) {
     CLOSURE_DTORS.register(real, state, state);
     return real;
 }
+function wasm_bindgen__convert__closures_____invoke__h09b5a5232ce15ea3(arg0, arg1, arg2) {
+    wasm.wasm_bindgen__convert__closures_____invoke__h09b5a5232ce15ea3(arg0, arg1, arg2);
+}
+
 function wasm_bindgen__convert__closures________invoke__h5ae201fd903d83a4(arg0, arg1, arg2) {
     wasm.wasm_bindgen__convert__closures________invoke__h5ae201fd903d83a4(arg0, arg1, arg2);
 }
 
 function wasm_bindgen__convert__closures________invoke__ha4bb098ae8150cf2(arg0, arg1, arg2) {
     wasm.wasm_bindgen__convert__closures________invoke__ha4bb098ae8150cf2(arg0, arg1, arg2);
-}
-
-function wasm_bindgen__convert__closures_____invoke__h09b5a5232ce15ea3(arg0, arg1, arg2) {
-    wasm.wasm_bindgen__convert__closures_____invoke__h09b5a5232ce15ea3(arg0, arg1, arg2);
 }
 
 const EXPECTED_RESPONSE_TYPES = new Set(['basic', 'cors', 'default']);

@@ -17,6 +17,22 @@ pub fn app() -> Html {
                     <StatusBar />
                 </aside>
             </main>
+            <footer>
+                <div class="footer-content">
+                    <div class="footer-links">
+                        <a href="https://github.com/softwarewrighter/demo-ibm-1130-system" target="_blank" rel="noopener noreferrer">
+                            { "GitHub Repository" }
+                        </a>
+                        <span class="separator">{ "|" }</span>
+                        <a href="https://github.com/softwarewrighter/demo-ibm-1130-system/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">
+                            { "MIT License" }
+                        </a>
+                    </div>
+                    <div class="footer-copyright">
+                        { "Copyright © 2025 Michael A. Wright" }
+                    </div>
+                </div>
+            </footer>
         </div>
     }
 }
