@@ -244,6 +244,27 @@ mod tests {
 
 **All crates use Rust edition 2024** (specified in workspace and crate `Cargo.toml` files).
 
+## Markdown File Requirements
+
+**All `.md` files must use ASCII-only encoding** (a subset of UTF-8). Only printable ASCII characters (0x20-0x7E) plus newlines and tabs are allowed.
+
+This requirement is automatically enforced by `test_markdown_files_are_ascii_only()` in the test suite. Any markdown file containing:
+- Unicode characters (bytes > 127)
+- Control characters (0x00-0x1F except newline/tab)
+- Invisible Unicode characters (zero-width spaces, non-breaking spaces, etc.)
+
+will cause the build to fail.
+
+**ASCII equivalents to use**:
+- Microseconds: `us` not `U+00B5 (mu) + s`
+- Less/equal: `<=` not `U+2264`
+- Multiply: `x` not `U+00D7`
+- Arrows: `->` not `U+2192`
+- Quotes: `"` and `'` not smart quotes
+- Dashes: `-` and `--` not en/em dashes
+
+See `docs/process.md` section "Markdown File Encoding" for complete details.
+
 ## Documentation References
 
 Comprehensive design documentation is in `docs/`:

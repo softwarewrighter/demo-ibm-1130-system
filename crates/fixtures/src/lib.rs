@@ -5,10 +5,13 @@ mod tests {
     use std::fs;
     use std::path::Path;
 
-    /// Test that all .md files contain only ASCII characters (0x00-0x7F).
+    /// Test that all .md files contain only printable ASCII characters (0x20-0x7E plus newlines/tabs).
     ///
-    /// GitHub and many markdown renderers treat files with non-ASCII characters
-    /// as binary, making them unreadable in the web interface.
+    /// While GitHub supports UTF-8/Unicode, using ASCII-only ensures maximum
+    /// compatibility across all tools and prevents display issues from:
+    /// - Control characters (0x00-0x1F except newline/tab)
+    /// - Invisible Unicode characters (zero-width spaces, non-breaking spaces)
+    /// - Characters that may render differently across systems
     ///
     /// See docs/process.md section "Markdown File Encoding" for guidance.
     #[test]
@@ -67,7 +70,8 @@ mod tests {
         if !errors.is_empty() {
             panic!(
                 "\n\nERROR: Markdown files contain non-ASCII characters:\n\n{}\n\n\
-                These files will appear as binary on GitHub!\n\
+                All .md files must use ASCII-only encoding (subset of UTF-8).\n\
+                This ensures maximum compatibility and prevents display issues.\n\n\
                 See docs/process.md section \"Markdown File Encoding\" for guidance.\n\
                 Use ASCII equivalents: 'us' instead of 'µs', '<=' instead of '≤', etc.\n",
                 errors.join("\n")

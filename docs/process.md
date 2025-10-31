@@ -109,9 +109,15 @@ cargo clippy --all-targets --all-features -- -D warnings
 - Check with `git status` before committing
 
 ### 4. Markdown File Encoding
-**All `.md` files must be UTF-8 encoded and contain only printable ASCII characters (0x20-0x7E plus newlines).**
+**All `.md` files must use ASCII-only encoding (a subset of UTF-8).**
 
-GitHub and many markdown renderers treat files with non-ASCII characters as binary, making them unreadable in the web interface.
+Specifically, only printable ASCII characters (0x20-0x7E) plus newlines (0x0A) and tabs (0x09) are allowed.
+
+**Rationale**: While GitHub supports UTF-8/Unicode in markdown, restricting to ASCII ensures:
+- Maximum compatibility across all tools and editors
+- No invisible or control characters that cause display issues
+- Consistent rendering across different systems and locales
+- Simpler text processing and searching
 
 **Common violations to avoid**:
 - Unicode symbols: U+00D7 (multiplication), U+2264 (less/equal), U+2248 (approx), U+00B5 (micro)
@@ -129,20 +135,19 @@ GitHub and many markdown renderers treat files with non-ASCII characters as bina
 - Not equal: `!=` instead of U+2260
 - Regular ASCII quotes, dashes, and spaces only
 
-**Verification command**:
+**Automated enforcement**:
+The test suite includes `test_markdown_files_are_ascii_only()` which automatically fails the build if any .md file contains non-ASCII characters. Run with:
+```bash
+cargo test --all
+```
+
+**Manual verification**:
 ```bash
 # Check all .md files for non-ASCII characters
 find . -name "*.md" -exec perl -ne 'print "$ARGV:$.: $_" if /[^\x00-\x7F]/' {} +
 
-# Or use Python
-python3 -c "
-import glob
-for f in glob.glob('**/*.md', recursive=True):
-    with open(f, 'rb') as file:
-        for i, line in enumerate(file, 1):
-            if any(b > 127 for b in line):
-                print(f'{f}:{i}')
-"
+# Or use the provided script
+./scripts/check-md-encoding.sh
 ```
 
 ### 5. Update Documentation
