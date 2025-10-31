@@ -18,7 +18,7 @@ pub fn app() -> Html {
                     <div class="hardware-info">
                         <h3>{ "IBM 2315 Disk Cartridge" }</h3>
                         <img
-                            src="/demo-ibm-1130-system/licensed-media/ibm-2315-cartridge.jpg"
+                            src="/demo-ibm-1130-system/static/licensed-media/ibm-2315-cartridge.jpg"
                             alt="IBM 2315 disk cartridge - Removable disk cartridge used in an IBM 1130"
                             class="hardware-image"
                         />

@@ -1,0 +1,59 @@
+Creative Commons Attribution-ShareAlike 3.0 Unported License
+
+This directory contains media files licensed under Creative Commons licenses.
+Each file is subject to the terms of its respective license.
+
+================================================================================
+
+FILE: ibm-2315-cartridge.jpg
+
+TITLE: Disk Cartridge 2315 type
+DESCRIPTION: Removable disk cartridge used in an IBM 1130, compatible with
+             IBM 2315 type, made by Nashua Corp.
+AUTHOR: James Berlin
+DATE: 4 October 2011
+SOURCE: https://commons.wikimedia.org/wiki/File:Disk_Cartridge_2315_type.jb.jpg
+LICENSE: Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
+LICENSE URL: https://creativecommons.org/licenses/by-sa/3.0/
+
+MODIFICATIONS: Scaled down from original 2,345 × 1,653 pixels to 960 × 677 pixels
+               for web display purposes.
+
+ATTRIBUTION STATEMENT:
+"Disk Cartridge 2315 type" by James Berlin is licensed under CC BY-SA 3.0.
+Original image available at:
+https://commons.wikimedia.org/wiki/File:Disk_Cartridge_2315_type.jb.jpg
+
+================================================================================
+
+CREATIVE COMMONS ATTRIBUTION-SHAREALIKE 3.0 UNPORTED LICENSE SUMMARY:
+
+You are free to:
+  • Share — copy and redistribute the material in any medium or format
+  • Adapt — remix, transform, and build upon the material for any purpose,
+    even commercially
+
+Under the following terms:
+  • Attribution — You must give appropriate credit, provide a link to the
+    license, and indicate if changes were made. You may do so in any
+    reasonable manner, but not in any way that suggests the licensor
+    endorses you or your use.
+
+  • ShareAlike — If you remix, transform, or build upon the material, you
+    must distribute your contributions under the same license as the original.
+
+  • No additional restrictions — You may not apply legal terms or
+    technological measures that legally restrict others from doing anything
+    the license permits.
+
+Full license text available at:
+https://creativecommons.org/licenses/by-sa/3.0/legalcode
+
+================================================================================
+
+Wikimedia VRTS Ticket: 2011112210035335
+This file has been verified by Wikimedia Foundation's Volunteer Response Team
+as having permission from the copyright holder for publication under the
+specified license terms.
+
+================================================================================
