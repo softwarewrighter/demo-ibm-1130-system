@@ -360,3 +360,313 @@ footer {
         display: none;
     }
 }
+
+/* New Layout Styles */
+
+/* App Container */
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Navigation */
+.app-header {
+    background-color: #2c3e50;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.header-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.header-nav {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-tab {
+    background: transparent;
+    border: 2px solid transparent;
+    color: #ecf0f1;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.nav-tab:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-tab.active {
+    background-color: #3498db;
+    border-color: #3498db;
+    color: white;
+}
+
+.nav-tab:focus {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+/* Overview Styles */
+.overview-content {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.overview-section {
+    margin-bottom: 30px;
+}
+
+.overview-section:last-child {
+    margin-bottom: 0;
+}
+
+.overview-section h2 {
+    color: #2c3e50;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.overview-section h3 {
+    color: #34495e;
+    font-size: 24px;
+    margin-bottom: 12px;
+    margin-top: 10px;
+}
+
+.overview-section p {
+    color: #555;
+    margin-bottom: 12px;
+    line-height: 1.7;
+}
+
+.feature-list {
+    margin-left: 25px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.feature-list li {
+    color: #555;
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+/* Hardware View Styles */
+.hardware-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 20px;
+    height: 100%;
+}
+
+.hardware-sidebar {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+}
+
+.hardware-sidebar h3 {
+    color: #2c3e50;
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ecf0f1;
+}
+
+.hardware-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-item {
+    background: transparent;
+    border: none;
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 15px;
+    color: #555;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+}
+
+.sidebar-item:hover {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+}
+
+.sidebar-item.active {
+    background-color: #3498db;
+    color: white;
+    font-weight: 600;
+}
+
+.sidebar-item:focus {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
+
+.hardware-content {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hardware-content h2 {
+    color: #2c3e50;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.hardware-content h3 {
+    color: #34495e;
+    font-size: 20px;
+    margin-bottom: 12px;
+    margin-top: 15px;
+}
+
+.hardware-image-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.hardware-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin-bottom: 12px;
+}
+
+.no-image-placeholder {
+    padding: 60px 20px;
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.no-image-placeholder p {
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+.hardware-description {
+    margin-top: 20px;
+}
+
+.hardware-description p {
+    color: #555;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+/* Footer */
+.app-footer {
+    margin-top: auto;
+    padding: 20px;
+    background-color: #2c3e50;
+    color: white;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design for New Layout */
+@media (max-width: 1024px) {
+    .hardware-container {
+        grid-template-columns: 200px 1fr;
+    }
+
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-title {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hardware-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hardware-sidebar {
+        order: -1;
+    }
+
+    .main-content {
+        padding: 20px 10px;
+    }
+
+    .overview-content {
+        padding: 25px;
+    }
+
+    .hardware-content {
+        padding: 20px;
+    }
+
+    .header-content {
+        padding: 15px;
+    }
+
+    .header-title {
+        font-size: 20px;
+    }
+
+    .nav-tab {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .hardware-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .sidebar-item {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+}
