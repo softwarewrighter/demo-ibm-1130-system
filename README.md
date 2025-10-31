@@ -77,7 +77,7 @@ demo-ibm-1130-system/
     yew-ui/           # WASM/Yew web interface
     fixtures/         # Sample disk images and card decks
   documentation/      # Design documentation and specifications
-  pages-demo/         # GitHub Pages - WASM build output (auto-generated)
+  docs/               # GitHub Pages - WASM build output (auto-generated)
   scripts/            # Build and deployment scripts
   images/             # Documentation images
 ```

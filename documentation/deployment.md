@@ -4,7 +4,7 @@ This document describes how to deploy the IBM 1130 Simulator web UI to GitHub Pa
 
 ## GitHub Pages Configuration
 
-The live demo is hosted via GitHub Pages using the **main branch, `/pages-demo` directory** approach.
+The live demo is hosted via GitHub Pages using the **main branch, `/docs` directory** approach.
 
 ### Initial Setup
 
@@ -12,7 +12,7 @@ The live demo is hosted via GitHub Pages using the **main branch, `/pages-demo` 
    - Go to Settings → Pages
    - Source: Deploy from a branch
    - Branch: `main`
-   - Folder: `/pages-demo`
+   - Folder: `/docs`
    - Click Save
 
 2. The live demo will be available at:
@@ -38,21 +38,21 @@ cargo install trunk
 # From repository root
 cd crates/yew-ui
 
-# Build release version (outputs to ../../pages-demo)
+# Build release version (outputs to ../../docs)
 trunk build --release
 ```
 
 This will:
 - Compile Rust code to WASM (optimized, with LTO)
 - Generate HTML, CSS, and JavaScript files
-- Output everything to `/pages-demo` directory
+- Output everything to `/docs` directory
 - Set public URL to `/demo-ibm-1130-system/` (for GitHub Pages)
 
 ### Build Output
 
-The `/pages-demo` directory contains:
+The `/docs` directory contains:
 ```
-pages-demo/
+docs/
   index.html              # Main HTML file
   yew-ui-*.wasm          # WebAssembly binary (optimized)
   yew-ui-*.js            # JavaScript glue code
@@ -70,20 +70,20 @@ pages-demo/
 
 2. **Verify build output**:
    ```bash
-   ls -lh ../../pages-demo/
+   ls -lh ../../docs/
    ```
 
 3. **Test locally** (optional):
    ```bash
-   # Serve from pages-demo directory
-   cd ../../pages-demo
+   # Serve from docs directory
+   cd ../../docs
    python3 -m http.server 8000
    # Open http://localhost:8000/demo-ibm-1130-system/ in browser
    ```
 
 4. **Commit and push**:
    ```bash
-   git add pages-demo/
+   git add docs/
    git commit -m "docs: Update WASM build for deployment"
    git push origin main
    ```
@@ -97,7 +97,7 @@ pages-demo/
 ```
 demo-ibm-1130-system/
   documentation/          # Project documentation (Markdown)
-  pages-demo/             # GitHub Pages - WASM build output
+  docs/             # GitHub Pages - WASM build output
     index.html
     *.wasm
     *.js
@@ -109,7 +109,7 @@ demo-ibm-1130-system/
       Trunk.toml          # Build configuration
 ```
 
-**Note**: `/pages-demo` contains auto-generated build artifacts. Don't edit these files manually.
+**Note**: `/docs` contains auto-generated build artifacts. Don't edit these files manually.
 
 ## Trunk Configuration
 
@@ -118,11 +118,11 @@ The `crates/yew-ui/Trunk.toml` file configures the build:
 ```toml
 [build]
 target = "index.html"
-dist = "../../pages-demo"
+dist = "../../docs"
 public_url = "/demo-ibm-1130-system/"
 
 [watch]
-ignore = ["../../pages-demo"]
+ignore = ["../../docs"]
 
 [serve]
 port = 1130
@@ -130,7 +130,7 @@ open = false
 ```
 
 Key settings:
-- `dist = "../../pages-demo"` - Output directory for GitHub Pages
+- `dist = "../../docs"` - Output directory for GitHub Pages
 - `public_url = "/demo-ibm-1130-system/"` - URL path for assets on GitHub Pages
 - `port = 1130` - Local development server port (tribute to IBM 1130!)
 
@@ -165,7 +165,7 @@ Whenever you make changes to the UI:
 1. Make code changes in `crates/yew-ui/src/`
 2. Test locally with `trunk serve`
 3. Build for production with `trunk build --release`
-4. Commit the updated `/pages-demo` directory
+4. Commit the updated `/docs` directory
 5. Push to GitHub
 6. GitHub Pages automatically deploys the new version
 
@@ -209,7 +209,7 @@ To further reduce size:
 cargo install wasm-opt
 
 # Manually optimize
-wasm-opt -Oz pages-demo/*.wasm -o pages-demo/*.wasm
+wasm-opt -Oz docs/*.wasm -o docs/*.wasm
 ```
 
 ## Performance
@@ -234,7 +234,7 @@ wasm-opt -Oz pages-demo/*.wasm -o pages-demo/*.wasm
 
 If you prefer automated deployments, you can use GitHub Actions instead:
 
-1. Don't track `/pages-demo` in git
+1. Don't track `/docs` in git
 2. Create `.github/workflows/deploy.yml` with Trunk build step
 3. Deploy to `gh-pages` branch
 4. Configure GitHub Pages to use `gh-pages` branch
