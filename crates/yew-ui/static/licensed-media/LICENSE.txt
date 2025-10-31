@@ -28,6 +28,26 @@ WIKIMEDIA VRTS: Ticket 2011112210035335 - Verified by Wikimedia Foundation's
 
 ================================================================================
 
+FILE: ibm-1130-console.jpg
+
+TITLE: IBM 1130 Console at Computer History Museum
+DESCRIPTION: IBM 1130 computer system console showing the 1131 CPU unit with
+             keyboard, console typewriter, and control panel. The console desk
+             housed the central processing unit and operator interface.
+AUTHOR: ArnoldReinhold
+DATE: 26 February 2012
+SOURCE: https://commons.wikimedia.org/wiki/File:IBM_1130_console_at_CHM.agr.JPG
+LICENSE: Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
+LICENSE URL: https://creativecommons.org/licenses/by-sa/3.0/
+
+DIMENSIONS: 3,264 × 2,448 pixels
+MODIFICATIONS: None
+
+ATTRIBUTION:
+"IBM 1130 console at CHM.agr" by ArnoldReinhold is licensed under CC BY-SA 3.0.
+
+================================================================================
+
 FILE: calcomp-565-plotter.jpg
 
 TITLE: Calcomp 565 drum plotter

@@ -93,7 +93,7 @@ impl HardwareDevice {
 
     pub fn image_path(&self) -> Option<&'static str> {
         match self {
-            HardwareDevice::Cpu1131 => None, // We don't have a 1131 CPU image yet
+            HardwareDevice::Cpu1131 => Some("/demo-ibm-1130-system/static/licensed-media/ibm-1130-console.jpg"),
             HardwareDevice::Printer1132 => Some("/demo-ibm-1130-system/static/licensed-media/ibm-1132-printer.jpg"),
             HardwareDevice::Multiplexor1133 => None, // We don't have a 1133 image yet
             HardwareDevice::Printer1403 => Some("/demo-ibm-1130-system/static/licensed-media/ibm-1403-printer.jpg"),
@@ -105,7 +105,11 @@ impl HardwareDevice {
 
     pub fn attribution(&self) -> Option<(&'static str, &'static str, &'static str)> {
         match self {
-            HardwareDevice::Cpu1131 => None,
+            HardwareDevice::Cpu1131 => Some((
+                "ArnoldReinhold",
+                "CC BY-SA 3.0",
+                "https://creativecommons.org/licenses/by-sa/3.0/"
+            )),
             HardwareDevice::Printer1132 => Some((
                 "ThisIsNotABetter",
                 "CC BY-SA 2.0",
