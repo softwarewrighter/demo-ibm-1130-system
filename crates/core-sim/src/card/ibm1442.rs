@@ -20,11 +20,7 @@ impl Ibm1442 {
             hopper: Vec::new(),
             stacker_a: Vec::new(),
             stacker_b: Vec::new(),
-            status: DeviceStatusWord {
-                busy: false,
-                error: false,
-                attention: false,
-            },
+            status: DeviceStatusWord::ready(),
             read_speed_cpm: 400,
             punch_speed_cpm: 360,
         }
@@ -43,11 +39,7 @@ impl Ibm1442 {
 
 impl Device for Ibm1442 {
     fn reset(&mut self) {
-        self.status = DeviceStatusWord {
-            busy: false,
-            error: false,
-            attention: false,
-        };
+        self.status = DeviceStatusWord::ready();
     }
 
     fn poll(&mut self, _now_us: u64) {

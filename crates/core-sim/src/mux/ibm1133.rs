@@ -12,11 +12,7 @@ impl Ibm1133 {
     pub fn new() -> Self {
         Self {
             devices: HashMap::new(),
-            status: DeviceStatusWord {
-                busy: false,
-                error: false,
-                attention: false,
-            },
+            status: DeviceStatusWord::ready(),
         }
     }
 }
@@ -32,11 +28,7 @@ impl Device for Ibm1133 {
         for dev in self.devices.values_mut() {
             dev.reset();
         }
-        self.status = DeviceStatusWord {
-            busy: false,
-            error: false,
-            attention: false,
-        };
+        self.status = DeviceStatusWord::ready();
     }
 
     fn poll(&mut self, now_us: u64) {

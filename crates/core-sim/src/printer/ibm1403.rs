@@ -17,11 +17,7 @@ impl Ibm1403 {
             timing,
             model_7,
             output: Vec::new(),
-            status: DeviceStatusWord {
-                busy: false,
-                error: false,
-                attention: false,
-            },
+            status: DeviceStatusWord::ready(),
             line_width: 120,
         }
     }
@@ -36,11 +32,7 @@ impl Ibm1403 {
 impl Device for Ibm1403 {
     fn reset(&mut self) {
         self.output.clear();
-        self.status = DeviceStatusWord {
-            busy: false,
-            error: false,
-            attention: false,
-        };
+        self.status = DeviceStatusWord::ready();
     }
 
     fn poll(&mut self, _now_us: u64) {

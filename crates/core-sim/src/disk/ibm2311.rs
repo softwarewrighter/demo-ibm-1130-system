@@ -25,11 +25,7 @@ impl Ibm2311 {
             timing,
             current_cyl: 0,
             current_head: 0,
-            status: DeviceStatusWord {
-                busy: false,
-                error: false,
-                attention: false,
-            },
+            status: DeviceStatusWord::ready(),
             data: vec![0u16; total_words],
         }
     }
@@ -68,11 +64,7 @@ impl Device for Ibm2311 {
     fn reset(&mut self) {
         self.current_cyl = 0;
         self.current_head = 0;
-        self.status = DeviceStatusWord {
-            busy: false,
-            error: false,
-            attention: false,
-        };
+        self.status = DeviceStatusWord::ready();
     }
 
     fn poll(&mut self, _now_us: u64) {
