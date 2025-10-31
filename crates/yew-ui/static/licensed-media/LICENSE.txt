@@ -1,0 +1,206 @@
+LICENSED MEDIA ATTRIBUTION
+
+This directory contains media files licensed under various Creative Commons
+licenses. All licenses permit commercial use. Each file is subject to the
+terms of its respective license as detailed below.
+
+================================================================================
+
+FILE: ibm-2315-cartridge.jpg
+
+TITLE: Disk Cartridge 2315 type
+DESCRIPTION: Removable disk cartridge used in an IBM 1130, compatible with
+             IBM 2315 type, made by Nashua Corp.
+AUTHOR: James Berlin
+DATE: 4 October 2011
+SOURCE: https://commons.wikimedia.org/wiki/File:Disk_Cartridge_2315_type.jb.jpg
+LICENSE: Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
+LICENSE URL: https://creativecommons.org/licenses/by-sa/3.0/
+
+MODIFICATIONS: Scaled down from original 2,345 × 1,653 pixels to 960 × 677
+               pixels for web display purposes.
+
+ATTRIBUTION:
+"Disk Cartridge 2315 type" by James Berlin is licensed under CC BY-SA 3.0.
+
+WIKIMEDIA VRTS: Ticket 2011112210035335 - Verified by Wikimedia Foundation's
+                Volunteer Response Team
+
+================================================================================
+
+FILE: calcomp-565-plotter.jpg
+
+TITLE: Calcomp 565 drum plotter
+DESCRIPTION: Drum plotter circa 1966, which was sold by IBM as the IBM 1627
+             plotter model.
+AUTHOR: Ryan Somma
+DATE: 2 October 2010
+SOURCE: https://commons.wikimedia.org/wiki/File:Calcomp_565_drum_plotter.jpg
+ORIGINAL SOURCE: https://www.flickr.com/photos/ideonexus/5044227952/
+LICENSE: Creative Commons Attribution-ShareAlike 2.0 Generic (CC BY-SA 2.0)
+LICENSE URL: https://creativecommons.org/licenses/by-sa/2.0/
+
+MODIFICATIONS: None
+
+ATTRIBUTION:
+"Calcomp 565 drum plotter" by Ryan Somma is licensed under CC BY-SA 2.0.
+
+================================================================================
+
+FILE: ibm-1442-card-reader.jpg
+
+TITLE: IBM 1442 Card Read-Punch
+DESCRIPTION: IBM 1442 Card Read-Punch unit photographed at Vintage Computer
+             Festival 2010.
+AUTHOR: Unknown (uploaded to Wikimedia Commons)
+DATE: Photographed at VCF 2010
+SOURCE: https://commons.wikimedia.org/wiki/File:IBM1442_(1).jpg
+LICENSE: Creative Commons Attribution-ShareAlike 2.0 Generic (CC BY-SA 2.0)
+LICENSE URL: https://creativecommons.org/licenses/by-sa/2.0/
+
+DIMENSIONS: 1,217 × 1,530 pixels
+MODIFICATIONS: None
+
+ATTRIBUTION:
+"IBM1442 (1)" is licensed under CC BY-SA 2.0.
+
+================================================================================
+
+FILE: ibm-1403-printer.jpg
+
+TITLE: 1970 CNRZ Mécanographie IBM 1403 Line Printer
+DESCRIPTION: IBM 1403 high-speed line printer photographed at CNRZ in 1970.
+AUTHOR: inra.dist (Jean Weber)
+DATE: 1 May 2020 (uploaded to Wikimedia Commons)
+ORIGINAL DATE: 1970
+SOURCE: https://commons.wikimedia.org/wiki/File:1970_CNRZ_Mécanographie-5-cliche_Jean_Weber.jpg
+ORIGINAL SOURCE: https://www.flickr.com/photos/135897188@N04/37944569565/
+LICENSE: Creative Commons Attribution 2.0 Generic (CC BY 2.0)
+LICENSE URL: https://creativecommons.org/licenses/by/2.0/
+
+DIMENSIONS: 2,126 × 2,111 pixels
+MODIFICATIONS: None
+
+ATTRIBUTION:
+"1970 CNRZ Mécanographie-5-cliche Jean Weber" by inra.dist is licensed under
+CC BY 2.0.
+
+FLICKR REVIEW: Reviewed on 1 May 2020 by FlickreviewR 2 and confirmed to be
+               licensed under CC BY 2.0.
+
+================================================================================
+
+FILE: ibm-1132-printer.jpg
+
+TITLE: IBM 1130 with IBM 1132 Line Printer
+DESCRIPTION: IBM 1132 line printer (part of IBM 1130 computer system) shown
+             at Vintage Computer Festival 2010.
+AUTHOR: ThisIsNotABetter
+DATE: 30 October 2021 (uploaded to Wikimedia Commons)
+ORIGINAL DATE: 2010 (Vintage Computer Festival 2010)
+SOURCE: https://commons.wikimedia.org/wiki/File:Vintage_Computer_Festival_2010_056_(4717096457)_(cropped).jpg
+LICENSE: Creative Commons Attribution-Share Alike 2.0 Generic (CC BY-SA 2.0)
+LICENSE URL: https://creativecommons.org/licenses/by-sa/2.0/
+
+DIMENSIONS: 1,855 × 1,900 pixels
+MODIFICATIONS: Cropped 52% horizontally, 27% vertically from original
+
+ATTRIBUTION:
+"Vintage Computer Festival 2010 056 (4717096457) (cropped)" by
+ThisIsNotABetter is licensed under CC BY-SA 2.0.
+
+================================================================================
+
+FILE: ibm-2250-display.png
+
+TITLE: HES IBM 2250 Console
+DESCRIPTION: IBM 2250 vector graphics display terminal, photographed at
+             Harvard Electronic Systems (HES) in March 1969.
+AUTHOR: Grlloyd (George R. Lloyd)
+DATE: 14 June 2020 (uploaded to Wikimedia Commons)
+ORIGINAL DATE: March 1969
+SOURCE: https://commons.wikimedia.org/wiki/File:HES_IBM_2250_Console_grlloyd_Mar1969_02.png
+LICENSE: Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+LICENSE URL: https://creativecommons.org/licenses/by-sa/4.0/
+
+DIMENSIONS: 9,336 × 6,480 pixels
+MODIFICATIONS: None
+
+ATTRIBUTION:
+"HES IBM 2250 Console grlloyd Mar1969 02" by Grlloyd is licensed under
+CC BY-SA 4.0.
+
+================================================================================
+
+LICENSE SUMMARY
+
+All Creative Commons licenses used in this collection allow:
+  • Commercial use
+  • Redistribution
+  • Remix and adaptation
+
+CC BY 2.0 (Creative Commons Attribution 2.0 Generic)
+Used by: ibm-1403-printer.jpg
+
+Requirements:
+  • Attribution — You must give appropriate credit, provide a link to the
+    license, and indicate if changes were made.
+
+Full license: https://creativecommons.org/licenses/by/2.0/legalcode
+
+---
+
+CC BY-SA 2.0 (Creative Commons Attribution-ShareAlike 2.0 Generic)
+Used by: calcomp-565-plotter.jpg, ibm-1442-card-reader.jpg, ibm-1132-printer.jpg
+
+Requirements:
+  • Attribution — You must give appropriate credit, provide a link to the
+    license, and indicate if changes were made.
+  • ShareAlike — If you remix, transform, or build upon the material, you
+    must distribute your contributions under the same or compatible license.
+
+Full license: https://creativecommons.org/licenses/by-sa/2.0/legalcode
+
+---
+
+CC BY-SA 3.0 (Creative Commons Attribution-ShareAlike 3.0 Unported)
+Used by: ibm-2315-cartridge.jpg
+
+Requirements:
+  • Attribution — You must give appropriate credit, provide a link to the
+    license, and indicate if changes were made.
+  • ShareAlike — If you remix, transform, or build upon the material, you
+    must distribute your contributions under the same or compatible license.
+
+Full license: https://creativecommons.org/licenses/by-sa/3.0/legalcode
+
+---
+
+CC BY-SA 4.0 (Creative Commons Attribution-ShareAlike 4.0 International)
+Used by: ibm-2250-display.png
+
+Requirements:
+  • Attribution — You must give appropriate credit, provide a link to the
+    license, and indicate if changes were made.
+  • ShareAlike — If you remix, transform, or build upon the material, you
+    must distribute your contributions under the same or compatible license.
+
+Full license: https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+================================================================================
+
+COMPATIBILITY NOTES
+
+All licenses in this collection are compatible with commercial use and
+redistribution. The ShareAlike requirement applies only if you create
+derivative works of the images themselves. Using these images as-is in
+documentation or alongside software does not require the entire project
+to be licensed under Creative Commons terms.
+
+For questions about license compatibility or usage, please consult:
+https://creativecommons.org/share-your-work/licensing-considerations/compatible-licenses
+
+================================================================================
+
+This file was generated on 2025-10-31 as part of the IBM 1130 Disk I/O
+Simulator project.

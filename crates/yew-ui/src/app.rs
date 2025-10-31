@@ -1,56 +1,58 @@
-use crate::views::{card_reader::CardReader, disk_map::DiskMap, status_bar::StatusBar};
+use crate::views::{
+    hardware::{Hardware, HardwareDevice},
+    header_nav::{HeaderNav, Tab},
+    overview::Overview,
+};
 use yew::prelude::*;
 
 #[function_component(App)]
 pub fn app() -> Html {
+    let current_tab = use_state(|| Tab::Overview);
+    let selected_device = use_state(|| HardwareDevice::Cpu1131);
+
+    let on_tab_change = {
+        let current_tab = current_tab.clone();
+        Callback::from(move |tab: Tab| {
+            current_tab.set(tab);
+        })
+    };
+
+    let on_device_change = {
+        let selected_device = selected_device.clone();
+        Callback::from(move |device: HardwareDevice| {
+            selected_device.set(device);
+        })
+    };
+
     html! {
-        <div class="container">
-            <header>
-                <h1>{ "IBM 1130 Disk & I/O Simulator" }</h1>
-            </header>
-            <main class="grid">
-                <div class="disk-section">
-                    <DiskMap />
-                </div>
-                <aside class="controls-section">
-                    <CardReader />
-                    <StatusBar />
-                    <div class="hardware-info">
-                        <h3>{ "IBM 2315 Disk Cartridge" }</h3>
-                        <img
-                            src="/demo-ibm-1130-system/static/licensed-media/ibm-2315-cartridge.jpg"
-                            alt="IBM 2315 disk cartridge - Removable disk cartridge used in an IBM 1130"
-                            class="hardware-image"
-                        />
-                        <p class="image-attribution">
-                            <a href="https://commons.wikimedia.org/wiki/File:Disk_Cartridge_2315_type.jb.jpg"
-                               target="_blank"
-                               rel="noopener noreferrer">
-                                { "Photo by James Berlin" }
-                            </a>
-                            { " / " }
-                            <a href="https://creativecommons.org/licenses/by-sa/3.0/"
-                               target="_blank"
-                               rel="noopener noreferrer">
-                                { "CC BY-SA 3.0" }
-                            </a>
-                        </p>
-                    </div>
-                </aside>
+        <div class="app-container">
+            <HeaderNav current_tab={*current_tab} on_tab_change={on_tab_change} />
+            <main class="main-content">
+                {
+                    match *current_tab {
+                        Tab::Overview => html! { <Overview /> },
+                        Tab::Hardware => html! {
+                            <Hardware
+                                selected_device={*selected_device}
+                                on_device_change={on_device_change}
+                            />
+                        },
+                    }
+                }
             </main>
-            <footer>
+            <footer class="app-footer">
                 <div class="footer-content">
                     <div class="footer-links">
                         <a href="https://github.com/softwarewrighter/demo-ibm-1130-system" target="_blank" rel="noopener noreferrer">
                             { "GitHub Repository" }
                         </a>
-                        <span class="separator">{ "|" }</span>
+                        <span class="separator">{ " | " }</span>
                         <a href="https://github.com/softwarewrighter/demo-ibm-1130-system/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">
                             { "MIT License" }
                         </a>
-                        <span class="separator">{ "|" }</span>
-                        <a href="https://github.com/softwarewrighter/demo-ibm-1130-system/blob/main/licensed-media/LICENSE-CC-BY-SA-3.0.txt" target="_blank" rel="noopener noreferrer">
-                            { "Media: CC BY-SA 3.0" }
+                        <span class="separator">{ " | " }</span>
+                        <a href="https://github.com/softwarewrighter/demo-ibm-1130-system/blob/main/licensed-media/LICENSE.txt" target="_blank" rel="noopener noreferrer">
+                            { "Media Licenses" }
                         </a>
                     </div>
                     <div class="footer-copyright">
