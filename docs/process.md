@@ -44,7 +44,7 @@ fn quantize_cylinder(&self, cyl: u16) -> u16 {
 - Cross-cutting concerns separated (`timing`, `audio`, `cpu_bus`, `util`)
 
 **Short, tested, documented functions**:
-- Functions should be ≤30 lines when possible
+- Functions should be <=30 lines when possible
 - Each function should do one thing well
 - Public functions must have doc comments
 - Complex logic must have inline comments explaining "why"
@@ -54,7 +54,7 @@ fn quantize_cylinder(&self, cyl: u16) -> u16 {
 /// Calculate seek time for 2315 disk based on cylinder distance.
 ///
 /// The 2315 seeks in 2-cylinder increments with timing formula:
-/// t = 7.5ms × N_even + 22.5ms settle
+/// t = 7.5ms x N_even + 22.5ms settle
 fn calculate_seek_time(&self, from: u16, to: u16) -> u64 {
     let delta = ((to as i32 - from as i32).abs() / 2) as f64;
     let time_ms = delta * 7.5 + 22.5;
@@ -108,13 +108,50 @@ cargo clippy --all-targets --all-features -- -D warnings
 - Never commit system files (`.DS_Store`)
 - Check with `git status` before committing
 
-### 4. Update Documentation
+### 4. Markdown File Encoding
+**All `.md` files must be UTF-8 encoded and contain only printable ASCII characters (0x20-0x7E plus newlines).**
+
+GitHub and many markdown renderers treat files with non-ASCII characters as binary, making them unreadable in the web interface.
+
+**Common violations to avoid**:
+- Unicode symbols: U+00D7 (multiplication), U+2264 (less/equal), U+2248 (approx), U+00B5 (micro)
+- Smart quotes: U+201C, U+201D, U+2018, U+2019
+- Special dashes: U+2013 (en dash), U+2014 (em dash), U+2010 (non-breaking hyphen)
+- Non-breaking spaces and other invisible Unicode characters
+
+**Use ASCII equivalents instead**:
+- Multiplication: `x` instead of U+00D7
+- Less than or equal: `<=` instead of U+2264
+- Approximately: `~=` instead of U+2248
+- Microseconds: `us` instead of U+00B5 (mu)
+- Arrow: `->` instead of U+2192
+- Element of: `in` instead of U+2208
+- Not equal: `!=` instead of U+2260
+- Regular ASCII quotes, dashes, and spaces only
+
+**Verification command**:
+```bash
+# Check all .md files for non-ASCII characters
+find . -name "*.md" -exec perl -ne 'print "$ARGV:$.: $_" if /[^\x00-\x7F]/' {} +
+
+# Or use Python
+python3 -c "
+import glob
+for f in glob.glob('**/*.md', recursive=True):
+    with open(f, 'rb') as file:
+        for i, line in enumerate(file, 1):
+            if any(b > 127 for b in line):
+                print(f'{f}:{i}')
+"
+```
+
+### 5. Update Documentation
 - Update doc comments for any changed public APIs
 - Update `docs/status.md` if feature status changes
 - Update `CLAUDE.md` if architecture changes
 - Update `README.md` if user-facing changes occur
 
-### 5. Run All Tests
+### 6. Run All Tests
 ```bash
 cargo test --all
 ```
@@ -123,7 +160,7 @@ cargo test --all
 - Add new tests for any new functionality
 - Maintain or improve code coverage
 
-### 6. Verify Build
+### 7. Verify Build
 ```bash
 # Native build
 cargo build --all

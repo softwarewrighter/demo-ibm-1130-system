@@ -98,19 +98,19 @@ The simulator models the physical characteristics of IBM 1130 disks:
 - **Heads**: 2 (top/bottom surfaces)
 - **Sectors per track**: 4
 - **Words per sector**: 321 (word 0 = sector address, 320 words payload)
-- **Logical blocks**: 16 blocks × 20 words per sector
+- **Logical blocks**: 16 blocks x 20 words per sector
 
 ### Timing Model
 The `TimingModel` struct enables realistic hardware timing simulation:
 - `TimingModel::none()`: No delays (for tests)
-- `TimingModel::realistic()`: 1×  historical timing
+- `TimingModel::realistic()`: 1x  historical timing
 - `TimingModel::fast(multiplier)`: Accelerated timing
 
 **2315 Timing characteristics**:
-- RPM: 1500 → 40ms/revolution
+- RPM: 1500 -> 40ms/revolution
 - Avg rotational latency: ~20ms
-- Word rate: 27.8µs/word
-- Seek time: `7.5ms × N_even + 22.5ms settle` (seeks in 2-cylinder increments)
+- Word rate: 27.8us/word
+- Seek time: `7.5ms x N_even + 22.5ms settle` (seeks in 2-cylinder increments)
 
 ### Block Addressing
 `BlockAddr` represents Disk Monitor System logical blocks:
@@ -165,7 +165,7 @@ Never write implementation code without tests. Never commit failing tests.
 ### Modular Design
 - **Separate crates** for major components (core-sim, yew-ui, fixtures)
 - **Separate modules** for orthogonal concerns (disk/, card/, printer/, timing, etc.)
-- **Short functions** (≤30 lines when possible)
+- **Short functions** (<=30 lines when possible)
 - **Test each function** with unit tests in `#[cfg(test)]` modules
 - **Document public APIs** with doc comments (///)
 
@@ -212,7 +212,7 @@ Types: `feat`, `fix`, `refactor`, `test`, `docs`, `chore`
 ```rust
 /// Calculate seek time based on cylinder distance.
 ///
-/// The 2315 seeks in 2-cyl increments: t = 7.5ms × N + 22.5ms
+/// The 2315 seeks in 2-cyl increments: t = 7.5ms x N + 22.5ms
 fn calculate_seek_time(&self, from: u16, to: u16) -> u64 {
     let delta = ((to as i32 - from as i32).abs() / 2) as f64;
     let time_ms = delta * 7.5 + 22.5;
