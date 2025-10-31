@@ -2,6 +2,14 @@
 
 A historically accurate simulator for the IBM 1130 computer system, written in Rust with a browser-based interface using WebAssembly.
 
+## Live Demo
+
+**[Try the live demo →](https://softwarewrighter.github.io/demo-ibm-1130-system/)**
+
+![IBM 1130 Disk Simulator Screenshot](images/screenshot.png)
+
+*Browser-based disk visualization showing IBM 2315 cartridge geometry with cylinder/head/sector layout*
+
 ## Overview
 
 This project simulates vintage IBM 1130 peripheral devices with accurate timing models and geometry. The simulator is designed for educational purposes, providing visual feedback and realistic hardware behavior through a modern web interface.
@@ -45,7 +53,7 @@ cargo install trunk
 # Build entire workspace
 cargo build --release
 
-# Build and run web UI with hot reload
+# Build and run web UI with hot reload (runs on port 1130)
 cd crates/yew-ui
 trunk serve --open
 ```
@@ -68,7 +76,8 @@ demo-ibm-1130-system/
     core-sim/         # Pure Rust simulation core (no_std on WASM)
     yew-ui/           # WASM/Yew web interface
     fixtures/         # Sample disk images and card decks
-  docs/               # Design documentation and specifications
+  documentation/      # Design documentation and specifications
+  pages-demo/         # GitHub Pages - WASM build output (auto-generated)
   scripts/            # Build and deployment scripts
   images/             # Documentation images
 ```
@@ -135,13 +144,15 @@ All crates use **Rust edition 2024**.
 
 ## Documentation
 
-Comprehensive documentation is available in the [`docs/`](docs/) directory:
+Comprehensive documentation is available in the [`documentation/`](documentation/) directory:
 
-- [`process.md`](docs/process.md) - Development methodology and standards
-- [`ibm_1130_disk_i_o_simulator_starter_docs.md`](docs/ibm_1130_disk_i_o_simulator_starter_docs.md) - Complete system specification
-- [`research.md`](docs/research.md) - Historical IBM 1130 facts and fidelity policy
-- [`plan.md`](docs/plan.md) - Development milestones
-- [`status.md`](docs/status.md) - Current project status
+- [`process.md`](documentation/process.md) - Development methodology and standards
+- [`ibm_1130_disk_i_o_simulator_starter_docs.md`](documentation/ibm_1130_disk_i_o_simulator_starter_docs.md) - Complete system specification
+- [`research.md`](documentation/research.md) - Historical IBM 1130 facts and fidelity policy
+- [`plan.md`](documentation/plan.md) - Development milestones
+- [`status.md`](documentation/status.md) - Current project status
+- [`ui-testing.md`](documentation/ui-testing.md) - UI testing guide with Playwright/MCP
+- [`ui-test-results.md`](documentation/ui-test-results.md) - Latest UI test results
 
 ## License
 

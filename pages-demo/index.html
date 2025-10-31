@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>IBM 1130 Disk & I/O Simulator</title>
+    
+    <link rel="stylesheet" href="static/styles.css" />
+  <link rel="modulepreload" href="/demo-ibm-1130-system/yew-ui-6b8fd946c5e6ac64.js" crossorigin="anonymous" integrity="sha384-A+vMO8rof15BN1XqQaQw5t9IqhPZNQa8bd/F4+LGCN/6sTwSgdgxJFDKt4qgUdfq"><link rel="preload" href="/demo-ibm-1130-system/yew-ui-6b8fd946c5e6ac64_bg.wasm" crossorigin="anonymous" integrity="sha384-p3M+0lzHXiWStQfM9W7Qx17FLpRUvTZYOE0W/kJte4ByP8L/GPILLpZP8eIGygFV" as="fetch" type="application/wasm"></head>
+  <body>
+    <div id="root"></div>
+    <script type="module">import init from './yew-ui.js'; init();</script>
+  
+<script type="module">
+import init, * as bindings from '/demo-ibm-1130-system/yew-ui-6b8fd946c5e6ac64.js';
+const wasm = await init({ module_or_path: '/demo-ibm-1130-system/yew-ui-6b8fd946c5e6ac64_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script></body>
+</html>

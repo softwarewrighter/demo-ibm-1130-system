@@ -152,7 +152,7 @@ idx = cyl * 8 + (head * 4 + sector)
 
 ## Development Process (CRITICAL - READ FIRST)
 
-This project follows strict development standards documented in `docs/process.md`. Key principles:
+This project follows strict development standards documented in `documentation/process.md`. Key principles:
 
 ### Test-Driven Development (TDD)
 **All features and fixes MUST follow the Red/Green/Refactor cycle**:
@@ -263,16 +263,18 @@ will cause the build to fail.
 - Quotes: `"` and `'` not smart quotes
 - Dashes: `-` and `--` not en/em dashes
 
-See `docs/process.md` section "Markdown File Encoding" for complete details.
+See `documentation/process.md` section "Markdown File Encoding" for complete details.
 
 ## Documentation References
 
-Comprehensive design documentation is in `docs/`:
+Comprehensive design documentation is in `documentation/`:
 - **`process.md`**: Development methodology and quality standards (**READ THIS FIRST**)
 - `ibm_1130_disk_i_o_simulator_starter_docs.md`: Complete system specification
 - `architecture.md`, `design.md`, `PRD.md`: Architecture and requirements (currently TODO)
 - `research.md`: Historical IBM 1130 facts and fidelity policy
 - `plan.md`: Development milestones
 - `status.md`: Current project status
+- `ui-testing.md`: UI testing guide with Playwright/MCP
+- `ui-test-results.md`: Latest UI test results
 
 The starter docs contain detailed device specifications, timing formulas, file format definitions, and sample card deck layouts.

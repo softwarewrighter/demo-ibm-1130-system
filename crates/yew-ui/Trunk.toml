@@ -1,10 +1,11 @@
 [build]
 target = "index.html"
-dist = "dist"
+dist = "../../pages-demo"
+public_url = "/demo-ibm-1130-system/"
 
 [watch]
-ignore = ["dist"]
+ignore = ["../../pages-demo"]
 
 [serve]
-port = 8080
+port = 1130
 open = false
