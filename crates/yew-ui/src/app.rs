@@ -1,4 +1,5 @@
 use crate::views::{
+    demos::Demos,
     hardware::{Hardware, HardwareDevice},
     header_nav::{HeaderNav, Tab},
     overview::Overview,
@@ -38,6 +39,7 @@ pub fn app() -> Html {
                                 on_device_change={on_device_change}
                             />
                         },
+                        Tab::Demos => html! { <Demos /> },
                         Tab::Reference => html! { <Reference /> },
                     }
                 }
