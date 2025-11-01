@@ -99,7 +99,9 @@ impl HardwareDevice {
             HardwareDevice::Printer1132 => {
                 Some("/demo-ibm-1130-system/static/licensed-media/ibm-1132-printer.jpg")
             }
-            HardwareDevice::Multiplexor1133 => None, // We don't have a 1133 image yet
+            HardwareDevice::Multiplexor1133 => {
+                Some("/demo-ibm-1130-system/static/licensed-media/ibm-1133-multiplexor.png")
+            }
             HardwareDevice::Printer1403 => {
                 Some("/demo-ibm-1130-system/static/licensed-media/ibm-1403-printer.jpg")
             }
@@ -127,7 +129,11 @@ impl HardwareDevice {
                 "CC BY-SA 2.0",
                 "https://creativecommons.org/licenses/by-sa/2.0/",
             )),
-            HardwareDevice::Multiplexor1133 => None,
+            HardwareDevice::Multiplexor1133 => Some((
+                "Derived from IBM 1130 system photo",
+                "CC BY-SA 2.0",
+                "https://creativecommons.org/licenses/by-sa/2.0/",
+            )),
             HardwareDevice::Printer1403 => Some((
                 "inra.dist (Jean Weber)",
                 "CC BY 2.0",
