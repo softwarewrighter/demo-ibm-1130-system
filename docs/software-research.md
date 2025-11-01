@@ -67,9 +67,9 @@ Comprehensive archive of scanned IBM 1130 documentation and software:
 
 ## Programming Languages
 
-### APL\1130 ⭐ HIGH PRIORITY
+### APL\1130 + HIGH PRIORITY
 
-**Status:** ✅ Available - Open Source
+**Status:** + Available - Open Source
 
 **Historical Significance:**
 - **First publicly available APL system** (Spring 1968)
@@ -104,9 +104,9 @@ Comprehensive archive of scanned IBM 1130 documentation and software:
 - Mathematical notation demonstrations
 - Comparison with modern APL implementations
 
-### Forth ⭐ HIGH PRIORITY
+### Forth + HIGH PRIORITY
 
-**Status:** ✅ Available - Public Domain
+**Status:** + Available - Public Domain
 
 **Historical Significance:**
 - **Original Forth implementation** - Created by Charles Moore in 1968
@@ -151,7 +151,7 @@ Comprehensive archive of scanned IBM 1130 documentation and software:
 
 ### FORTRAN
 
-**Status:** ✅ Available - Multiple Versions
+**Status:** + Available - Multiple Versions
 
 **Versions:**
 - **IBM FORTRAN IV** - Included in DMS R2V12
@@ -185,7 +185,7 @@ Comprehensive archive of scanned IBM 1130 documentation and software:
 
 ### COBOL
 
-**Status:** ⚠️ Limited Availability
+**Status:** ++ Limited Availability
 
 **Historical Context:**
 - Available as add-on product for IBM 1130
@@ -203,7 +203,7 @@ Comprehensive archive of scanned IBM 1130 documentation and software:
 
 ### Algol
 
-**Status:** ✅ Available
+**Status:** + Available
 
 **Versions:**
 - **Algol 60** - Developed 1967-68 in Grenoble, France
@@ -223,7 +223,7 @@ Comprehensive archive of scanned IBM 1130 documentation and software:
 
 ### LISP
 
-**Status:** ✅ Available
+**Status:** + Available
 
 **Version:** LISP 1.6
 
@@ -244,7 +244,7 @@ Comprehensive archive of scanned IBM 1130 documentation and software:
 
 ### BASIC
 
-**Status:** ⚠️ Mentioned but Not Located
+**Status:** ++ Mentioned but Not Located
 
 **Historical Context:**
 - Listed as available language for IBM 1130
@@ -258,7 +258,7 @@ Comprehensive archive of scanned IBM 1130 documentation and software:
 
 ### RPG (Report Program Generator)
 
-**Status:** ✅ Available in DMS
+**Status:** + Available in DMS
 
 **Downloads:**
 - Included in DMS distributions
@@ -271,7 +271,7 @@ Comprehensive archive of scanned IBM 1130 documentation and software:
 
 ### PL/I
 
-**Status:** ⚠️ Mentioned but Not Located
+**Status:** ++ Mentioned but Not Located
 
 **Historical Context:**
 - IBM's ambitious "universal" language
@@ -308,7 +308,7 @@ Comprehensive archive of scanned IBM 1130 documentation and software:
 
 ### Macro Assembler
 
-**Status:** ✅ Available
+**Status:** + Available
 
 **Features:**
 - Full IBM 1130 instruction set
@@ -334,7 +334,7 @@ Comprehensive archive of scanned IBM 1130 documentation and software:
 
 ### Scientific Subroutine Package (SSP)
 
-**Status:** ✅ Available
+**Status:** + Available
 
 **Documentation:**
 - http://bitsavers.org/pdf/ibm/1130/subroutines/
@@ -350,7 +350,7 @@ Comprehensive archive of scanned IBM 1130 documentation and software:
 
 ### Commercial Subroutine Package
 
-**Status:** ✅ Available
+**Status:** + Available
 
 **Documentation:**
 - http://bitsavers.org/pdf/ibm/1130/subroutines/
@@ -364,7 +364,7 @@ Comprehensive archive of scanned IBM 1130 documentation and software:
 
 ### Magnetic Tape Subroutines
 
-**Status:** ✅ Available
+**Status:** + Available
 
 **Documentation:**
 - Available on archive.org via bitsavers
@@ -377,7 +377,7 @@ Comprehensive archive of scanned IBM 1130 documentation and software:
 
 ### Graphics Programs
 
-**Status:** ⚠️ Partial Availability
+**Status:** ++ Partial Availability
 
 **Known Applications:**
 - **2250 Display** - Vector graphics demos
@@ -546,13 +546,13 @@ Search http://bitsavers.org/pdf/ibm/ for specific device manuals:
 
 ### Phase 2: High-Level Languages (High Priority)
 
-4. **APL\1130** ⭐ - First public APL system
+4. **APL\1130** + - First public APL system
    - Download source from IBM1130.org
    - Assemble and integrate
    - Create matrix/array demos
    - Interactive programming examples
 
-5. **Forth** ⭐ - Original implementation
+5. **Forth** + - Original implementation
    - Clone GitHub repository
    - Convert and assemble source
    - Graphics demos with 2250 display

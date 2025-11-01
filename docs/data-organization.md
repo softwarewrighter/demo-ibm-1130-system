@@ -8,166 +8,166 @@ This document defines the directory structure and naming conventions for organiz
 
 ```
 data/
-├── decks/
-│   ├── algol/
-│   │   ├── source/
-│   │   │   ├── algol60-grenoble.txt
-│   │   │   ├── algol68-osu.txt
-│   │   │   └── README.md
-│   │   ├── binary/
-│   │   │   ├── algol60-grenoble.bin
-│   │   │   └── README.md
-│   │   └── normalized/
-│   │       ├── algol60-grenoble.deck
-│   │       └── metadata.toml
-│   ├── apl/
-│   │   ├── source/
-│   │   │   ├── apl1130-v1.txt
-│   │   │   ├── apl1130-v2.txt
-│   │   │   ├── apl1130-examples.txt
-│   │   │   └── README.md
-│   │   ├── binary/
-│   │   │   ├── apl1130-v1.bin
-│   │   │   ├── apl1130-v2.bin
-│   │   │   └── README.md
-│   │   └── normalized/
-│   │       ├── apl1130-v2.deck
-│   │       ├── examples/
-│   │       │   ├── matrix-ops.deck
-│   │       │   ├── statistics.deck
-│   │       │   └── factorial.deck
-│   │       └── metadata.toml
-│   ├── cobol/
-│   │   ├── source/
-│   │   │   ├── README.md (status: not yet located)
-│   │   ├── binary/
-│   │   │   └── README.md
-│   │   └── normalized/
-│   │       └── metadata.toml
-│   ├── forth/
-│   │   ├── source/
-│   │   │   ├── forth68-charles-moore.asm
-│   │   │   ├── forth68-listing.txt
-│   │   │   ├── forth68-notes.txt
-│   │   │   └── README.md
-│   │   ├── binary/
-│   │   │   ├── forth68.bin
-│   │   │   └── README.md
-│   │   └── normalized/
-│   │       ├── forth68.deck
-│   │       ├── examples/
-│   │       │   ├── stack-demo.deck
-│   │       │   ├── factorial.deck
-│   │       │   └── graphics-2250.deck
-│   │       └── metadata.toml
-│   ├── fortran/
-│   │   ├── source/
-│   │   │   ├── roots.f
-│   │   │   ├── csort.f
-│   │   │   ├── list.f
-│   │   │   ├── ssp-examples/
-│   │   │   │   ├── matrix-mult.f
-│   │   │   │   ├── diff-eq.f
-│   │   │   │   └── fourier.f
-│   │   │   └── README.md
-│   │   ├── binary/
-│   │   │   ├── roots.bin
-│   │   │   ├── csort.bin
-│   │   │   ├── list.bin
-│   │   │   └── README.md
-│   │   └── normalized/
-│   │       ├── roots.deck
-│   │       ├── csort.deck
-│   │       ├── list.deck
-│   │       ├── ssp/
-│   │       │   └── (Scientific Subroutine Package decks)
-│   │       └── metadata.toml
-│   ├── lisp/
-│   │   ├── source/
-│   │   │   ├── lisp16-examples.txt
-│   │   │   └── README.md
-│   │   ├── binary/
-│   │   │   ├── lisp16.bin
-│   │   │   └── README.md
-│   │   └── normalized/
-│   │       ├── lisp16.deck
-│   │       ├── examples/
-│   │       │   ├── factorial.deck
-│   │       │   ├── list-processing.deck
-│   │       │   └── symbolic-diff.deck
-│   │       └── metadata.toml
-│   ├── rpg/
-│   │   ├── source/
-│   │   │   ├── report-gen-examples.txt
-│   │   │   └── README.md
-│   │   ├── binary/
-│   │   │   └── README.md
-│   │   └── normalized/
-│   │       ├── examples/
-│   │       │   ├── sales-report.deck
-│   │       │   └── inventory-list.deck
-│   │       └── metadata.toml
-│   ├── assembly/
-│   │   ├── source/
-│   │   │   ├── dmsboot.asm
-│   │   │   ├── zdcip.asm
-│   │   │   ├── zcrdumpc.asm
-│   │   │   ├── io-examples/
-│   │   │   │   ├── card-reader.asm
-│   │   │   │   ├── printer.asm
-│   │   │   │   ├── disk-io.asm
-│   │   │   │   └── plotter.asm
-│   │   │   └── README.md
-│   │   ├── binary/
-│   │   │   ├── dmsboot.bin
-│   │   │   └── README.md
-│   │   └── normalized/
-│   │       ├── dmsboot.deck
-│   │       ├── io-examples/
-│   │       │   └── (I/O demo decks)
-│   │       └── metadata.toml
-│   └── utilities/
-│       ├── source/
-│       │   ├── disk-copy.asm
-│       │   ├── disk-init.asm
-│       │   ├── memory-dump.asm
-│       │   └── README.md
-│       ├── binary/
-│       │   └── README.md
-│       └── normalized/
-│           ├── disk-copy.deck
-│           └── metadata.toml
-├── disks/
-│   ├── dms/
-│   │   ├── dms-r2v12.dsk
-│   │   ├── dms-r2v12-fortran.dsk
-│   │   ├── dms-r2v12-apl.dsk
-│   │   ├── dms-r2v12-rpg.dsk
-│   │   └── README.md
-│   ├── lisp/
-│   │   ├── lisp16.dsk
-│   │   └── README.md
-│   ├── examples/
-│   │   ├── blank-2315.dsk
-│   │   ├── sample-data.dsk
-│   │   └── README.md
-│   └── metadata.toml
-├── documentation/
-│   ├── manuals/
-│   │   ├── functional-characteristics-1966.pdf (symlink to downloaded)
-│   │   ├── fortran-iv-language-1973.pdf
-│   │   ├── apl1130-manual-1969.pdf
-│   │   ├── dms-programming-guide-1972.pdf
-│   │   └── README.md
-│   ├── quick-reference/
-│   │   ├── programmer-card-1968.pdf
-│   │   ├── instruction-set.md
-│   │   └── io-commands.md
-│   └── metadata.toml
-└── metadata/
-    ├── catalog.toml          # Master catalog of all assets
-    ├── downloads.toml        # Download sources and checksums
-    └── licenses.toml         # License information for all files
++++ decks/
++   +++ algol/
++   +   +++ source/
++   +   +   +++ algol60-grenoble.txt
++   +   +   +++ algol68-osu.txt
++   +   +   +++ README.md
++   +   +++ binary/
++   +   +   +++ algol60-grenoble.bin
++   +   +   +++ README.md
++   +   +++ normalized/
++   +       +++ algol60-grenoble.deck
++   +       +++ metadata.toml
++   +++ apl/
++   +   +++ source/
++   +   +   +++ apl1130-v1.txt
++   +   +   +++ apl1130-v2.txt
++   +   +   +++ apl1130-examples.txt
++   +   +   +++ README.md
++   +   +++ binary/
++   +   +   +++ apl1130-v1.bin
++   +   +   +++ apl1130-v2.bin
++   +   +   +++ README.md
++   +   +++ normalized/
++   +       +++ apl1130-v2.deck
++   +       +++ examples/
++   +       +   +++ matrix-ops.deck
++   +       +   +++ statistics.deck
++   +       +   +++ factorial.deck
++   +       +++ metadata.toml
++   +++ cobol/
++   +   +++ source/
++   +   +   +++ README.md (status: not yet located)
++   +   +++ binary/
++   +   +   +++ README.md
++   +   +++ normalized/
++   +       +++ metadata.toml
++   +++ forth/
++   +   +++ source/
++   +   +   +++ forth68-charles-moore.asm
++   +   +   +++ forth68-listing.txt
++   +   +   +++ forth68-notes.txt
++   +   +   +++ README.md
++   +   +++ binary/
++   +   +   +++ forth68.bin
++   +   +   +++ README.md
++   +   +++ normalized/
++   +       +++ forth68.deck
++   +       +++ examples/
++   +       +   +++ stack-demo.deck
++   +       +   +++ factorial.deck
++   +       +   +++ graphics-2250.deck
++   +       +++ metadata.toml
++   +++ fortran/
++   +   +++ source/
++   +   +   +++ roots.f
++   +   +   +++ csort.f
++   +   +   +++ list.f
++   +   +   +++ ssp-examples/
++   +   +   +   +++ matrix-mult.f
++   +   +   +   +++ diff-eq.f
++   +   +   +   +++ fourier.f
++   +   +   +++ README.md
++   +   +++ binary/
++   +   +   +++ roots.bin
++   +   +   +++ csort.bin
++   +   +   +++ list.bin
++   +   +   +++ README.md
++   +   +++ normalized/
++   +       +++ roots.deck
++   +       +++ csort.deck
++   +       +++ list.deck
++   +       +++ ssp/
++   +       +   +++ (Scientific Subroutine Package decks)
++   +       +++ metadata.toml
++   +++ lisp/
++   +   +++ source/
++   +   +   +++ lisp16-examples.txt
++   +   +   +++ README.md
++   +   +++ binary/
++   +   +   +++ lisp16.bin
++   +   +   +++ README.md
++   +   +++ normalized/
++   +       +++ lisp16.deck
++   +       +++ examples/
++   +       +   +++ factorial.deck
++   +       +   +++ list-processing.deck
++   +       +   +++ symbolic-diff.deck
++   +       +++ metadata.toml
++   +++ rpg/
++   +   +++ source/
++   +   +   +++ report-gen-examples.txt
++   +   +   +++ README.md
++   +   +++ binary/
++   +   +   +++ README.md
++   +   +++ normalized/
++   +       +++ examples/
++   +       +   +++ sales-report.deck
++   +       +   +++ inventory-list.deck
++   +       +++ metadata.toml
++   +++ assembly/
++   +   +++ source/
++   +   +   +++ dmsboot.asm
++   +   +   +++ zdcip.asm
++   +   +   +++ zcrdumpc.asm
++   +   +   +++ io-examples/
++   +   +   +   +++ card-reader.asm
++   +   +   +   +++ printer.asm
++   +   +   +   +++ disk-io.asm
++   +   +   +   +++ plotter.asm
++   +   +   +++ README.md
++   +   +++ binary/
++   +   +   +++ dmsboot.bin
++   +   +   +++ README.md
++   +   +++ normalized/
++   +       +++ dmsboot.deck
++   +       +++ io-examples/
++   +       +   +++ (I/O demo decks)
++   +       +++ metadata.toml
++   +++ utilities/
++       +++ source/
++       +   +++ disk-copy.asm
++       +   +++ disk-init.asm
++       +   +++ memory-dump.asm
++       +   +++ README.md
++       +++ binary/
++       +   +++ README.md
++       +++ normalized/
++           +++ disk-copy.deck
++           +++ metadata.toml
++++ disks/
++   +++ dms/
++   +   +++ dms-r2v12.dsk
++   +   +++ dms-r2v12-fortran.dsk
++   +   +++ dms-r2v12-apl.dsk
++   +   +++ dms-r2v12-rpg.dsk
++   +   +++ README.md
++   +++ lisp/
++   +   +++ lisp16.dsk
++   +   +++ README.md
++   +++ examples/
++   +   +++ blank-2315.dsk
++   +   +++ sample-data.dsk
++   +   +++ README.md
++   +++ metadata.toml
++++ documentation/
++   +++ manuals/
++   +   +++ functional-characteristics-1966.pdf (symlink to downloaded)
++   +   +++ fortran-iv-language-1973.pdf
++   +   +++ apl1130-manual-1969.pdf
++   +   +++ dms-programming-guide-1972.pdf
++   +   +++ README.md
++   +++ quick-reference/
++   +   +++ programmer-card-1968.pdf
++   +   +++ instruction-set.md
++   +   +++ io-commands.md
++   +++ metadata.toml
++++ metadata/
+    +++ catalog.toml          # Master catalog of all assets
+    +++ downloads.toml        # Download sources and checksums
+    +++ licenses.toml         # License information for all files
 ```
 
 ## File Naming Conventions
@@ -501,7 +501,7 @@ user manual (1130-03.3.001, May 1969).
 
 ## Integration Status
 
-✅ **Ready for integration**
++ **Ready for integration**
 
 - Source code available and verified
 - Assembler-compatible format
@@ -629,8 +629,8 @@ python3 ../../../../scripts/add-demo.py \
    - Update tracking
 
 2. **Format Converters**
-   - Binary → Normalized converter
-   - ASCII ↔ EBCDIC transcoder
+   - Binary + Normalized converter
+   - ASCII + EBCDIC transcoder
    - Card deck merger/splitter
 
 3. **Validation Tools**

@@ -2,7 +2,7 @@
 
 ## Critical: Clippy Workarounds to Remove
 
-**⚠️ THESE VIOLATE PROJECT STANDARDS** - See `docs/process.md` and `CLAUDE.md`
+**++ THESE VIOLATE PROJECT STANDARDS** - See `docs/process.md` and `CLAUDE.md`
 
 ### 1. Dead Code in `crates/yew-ui/src/views/disk_map.rs`
 
@@ -11,22 +11,22 @@
 
 **Affected Code:**
 ```rust
-#[allow(dead_code)]  // ❌ REMOVE THIS
+#[allow(dead_code)]  // + REMOVE THIS
 pub struct DiskState { ... }
 
-#[allow(dead_code)]  // ❌ REMOVE THIS
+#[allow(dead_code)]  // + REMOVE THIS
 fn render_disk_grid( ... ) { ... }
 
-#[allow(dead_code)]  // ❌ REMOVE THIS
+#[allow(dead_code)]  // + REMOVE THIS
 fn render_head_sectors( ... ) { ... }
 
-#[allow(dead_code)]  // ❌ REMOVE THIS
+#[allow(dead_code)]  // + REMOVE THIS
 fn render_sector( ... ) { ... }
 
-#[allow(dead_code)]  // ❌ REMOVE THIS
+#[allow(dead_code)]  // + REMOVE THIS
 fn calculate_sector_index( ... ) { ... }
 
-#[allow(dead_code)]  // ❌ REMOVE THIS
+#[allow(dead_code)]  // + REMOVE THIS
 fn parse_dsk_bytes( ... ) { ... }
 ```
 
@@ -162,7 +162,7 @@ cargo build --all
 **Action Items:**
 - [ ] Re-read `docs/process.md` before every commit
 - [ ] Never use `#[allow(...)]` or `#[ignore]` without explicit justification
-- [ ] Write tests FIRST (Red → Green → Refactor)
+- [ ] Write tests FIRST (Red + Green + Refactor)
 
 ---
 
@@ -184,10 +184,10 @@ CLAUDE.md doesn't explicitly forbid `#[allow(dead_code)]` and similar workaround
 - EXCEPTION: Only if documented in issue with explicit approval
 
 **Proper Responses to Warnings:**
-- Dead code → Delete it or use it
-- Unused imports → Remove them
-- Clippy suggestions → Apply them
-- If can't fix immediately → Create TODO.md entry, do NOT suppress
+- Dead code + Delete it or use it
+- Unused imports + Remove them
+- Clippy suggestions + Apply them
+- If can't fix immediately + Create TODO.md entry, do NOT suppress
 
 **Tests:**
 - NEVER use `#[ignore]` without documentation

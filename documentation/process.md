@@ -313,6 +313,55 @@ All crates inherit this edition from the workspace. When adding new features, en
 - Pin versions for reproducible builds
 - Regularly audit dependencies for security issues
 
+## Markdown File Encoding (CRITICAL - ASCII ONLY)
+
+**ALL markdown (.md) files MUST use ASCII-only encoding**
+
+This is a STRICT REQUIREMENT enforced by automated tests:
+
+### Prohibited Characters
+
+**NEVER use these in markdown files:**
+- Unicode arrows (use -> <- <-> instead)
+- Unicode bullets (use - or * instead)
+- Unicode box-drawing characters (use +|- instead)
+- Unicode checkmarks/crosses (use [X] [ ] instead)
+- Unicode stars (use [*] instead)
+- Emojis or Unicode symbols
+- APL special characters (use comments or ASCII equivalents)
+- Smart quotes/dashes (use " " ' - -- instead)
+- Accented characters (use plain e, u, etc. instead)
+- Degree symbols (use 'deg' instead)
+- Math symbols (use <=  >=  != instead)
+- Greek letters (use 'mu' 'pi' etc. instead)
+
+### Why ASCII-Only?
+
+1. **Compatibility:** Works on ALL platforms, editors, and terminals
+2. **No Encoding Issues:** Prevents mojibake and display problems
+3. **Copy-Paste Safe:** Works across different systems
+4. **Testing:** Project has automated tests that FAIL on non-ASCII
+5. **History:** Plain text survives format changes better
+
+### Testing
+
+Before committing, ALWAYS run:
+```bash
+cargo test --all
+```
+
+The test `test_markdown_files_are_ascii_only` will FAIL if non-ASCII characters are found.
+
+### Quick Reference
+
+**Arrows:** -> <- <->
+**Bullets:** - or *
+**Boxes:** +--+ | |
+**Status:** [X] [ ] [OK] [!]
+**Stars:** *  [*]
+
+If unsure, stick to letters, numbers, and basic punctuation: -.,;:!?()[]{}
+
 ## Continuous Improvement
 
 This process document is living documentation. Improve it when:

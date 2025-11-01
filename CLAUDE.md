@@ -196,11 +196,53 @@ cargo build --all
 - Suppress warnings instead of fixing the root cause
 
 **Proper Responses to Warnings:**
-- **Dead code** → Delete it completely OR actually use it in the codebase
-- **Unused imports** → Remove them immediately
-- **Clippy suggestions** → Apply the suggested fix
-- **Cannot fix immediately** → Create entry in `docs/todo.md` with tracking issue, do NOT suppress
-- **Disagree with clippy** → Discuss with maintainer, provide justification, do NOT suppress
+- **Dead code** -> Delete it completely OR actually use it in the codebase
+- **Unused imports** -> Remove them immediately
+- **Clippy suggestions** -> Apply the suggested fix
+- **Cannot fix immediately** -> Create entry in `docs/todo.md` with tracking issue, do NOT suppress
+- **Disagree with clippy** -> Discuss with maintainer, provide justification, do NOT suppress
+
+### Documentation Standards (CRITICAL - ASCII ONLY)
+
+**NEVER use non-ASCII characters in ANY markdown (.md) files**
+
+This is ABSOLUTELY FORBIDDEN and will cause test failures:
+- NO Unicode arrows (right-arrow left-arrow) - use -> <- <->
+- NO Unicode bullets (bullet) - use - or *
+- NO Unicode boxes (box chars) - use + | and -
+- NO Unicode checkmarks/crosses - use [X] [ ] [OK]
+- NO Unicode stars - use [*] or *
+- NO Unicode emojis or symbols of any kind
+- NO APL characters - use ASCII equivalents or comments
+- NO special punctuation (em-dash en-dash curly quotes) - use - -- " " '
+- NO accented characters - use plain ASCII equivalents
+- NO degree symbols - use 'deg' or write out 'degrees'
+- NO multiplication/division symbols - use * /
+- NO mathematical symbols (less-than-or-equal etc) - use <= >= != ~=
+- NO Greek letters (mu pi alpha beta) - write out 'mu' 'pi' 'alpha' 'beta'
+
+**Why ASCII-only?**
+1. Maximum compatibility across all platforms
+2. No encoding issues or mojibake
+3. Works in all text editors without special fonts
+4. Copy-paste safe across different systems
+5. Project has automated tests that WILL FAIL with non-ASCII
+
+**How to Check:**
+```bash
+# Test will fail if non-ASCII found
+cargo test --all
+```
+
+**How to Fix:**
+If you accidentally use non-ASCII, replace immediately:
+- Delete the character and type ASCII equivalent
+- Use plain ASCII arrows: ->  <-  <->
+- Use plain ASCII bullets: -  *
+- Use plain ASCII boxes: +--+ | |
+- Use plain brackets: [X] [ ] [OK] [!]
+
+**NO EXCEPTIONS** - This is enforced by automated tests
 
 **Consequences of Violations:**
 - Creates technical debt that must be tracked and fixed later

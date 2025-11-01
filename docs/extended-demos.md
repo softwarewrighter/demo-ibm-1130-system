@@ -70,32 +70,32 @@ Each I/O device gets dedicated demos showing its unique capabilities:
 ### 2. Multi-Device Demos
 
 **Data Processing Pipeline**
-- Read cards → Process in CPU → Print results
+- Read cards -> Process in CPU -> Print results
 - Shows coordination between card reader, CPU, and printer
 - Demonstrates typical business data processing workflow
 
 **Disk-Based Report Generation**
-- Read data from disk → Format → Print report
+- Read data from disk -> Format -> Print report
 - Shows disk I/O combined with printer output
 - Example: Student grade reports, inventory listings
 
 **Interactive Data Entry**
-- Console keyboard → Validate → Write to disk → Display confirmation
+- Console keyboard -> Validate -> Write to disk -> Display confirmation
 - Shows real-time interaction pattern
 - Example: Simple data entry application
 
 **Plotter from Disk Data**
-- Read coordinates from disk → Plot graph
+- Read coordinates from disk -> Plot graph
 - Shows scientific data visualization workflow
 - Example: Temperature/pressure charts
 
 **Card to Disk Transfer**
-- Read card deck → Write to disk file → Verify
+- Read card deck -> Write to disk file -> Verify
 - Shows data migration and validation
 - Example: Loading source code or data sets
 
 **Display with Disk Backing Store**
-- Load graphics from disk → Display → Update with light pen → Save back
+- Load graphics from disk -> Display -> Update with light pen -> Save back
 - Shows interactive graphics editing
 - Example: Simple CAD or drawing program
 
@@ -132,7 +132,7 @@ Each I/O device gets dedicated demos showing its unique capabilities:
 - System calls from user programs
 
 **Assembler Operation**
-- Source code → Object code transformation
+- Source code -> Object code transformation
 - Symbol table construction
 - Macro expansion
 - Linking multiple modules
@@ -164,28 +164,28 @@ The Demos tab provides a curated, browsable catalog of executable examples.
 
 ```
 Demos Tab
-├─ By Device
-│  ├─ 1131 CPU
-│  ├─ 1442 Card Reader/Punch
-│  ├─ 1403/1132 Printer
-│  ├─ 2310/2311 Disk
-│  ├─ 1133 Multiplexor
-│  ├─ 1627 Plotter
-│  └─ 2250 Display
-├─ By Complexity
-│  ├─ Beginner (single device, <50 lines)
-│  ├─ Intermediate (2-3 devices, <200 lines)
-│  └─ Advanced (multi-device, system software)
-├─ By Language
-│  ├─ Assembly Language
-│  ├─ FORTRAN
-│  ├─ APL
-│  └─ Forth
-└─ Featured Collections
-   ├─ Data Processing Workflows
-   ├─ Scientific Computing
-   ├─ Interactive Graphics
-   └─ System Programming
++- By Device
+|  +- 1131 CPU
+|  +- 1442 Card Reader/Punch
+|  +- 1403/1132 Printer
+|  +- 2310/2311 Disk
+|  +- 1133 Multiplexor
+|  +- 1627 Plotter
+|  +- 2250 Display
++- By Complexity
+|  +- Beginner (single device, <50 lines)
+|  +- Intermediate (2-3 devices, <200 lines)
+|  +- Advanced (multi-device, system software)
++- By Language
+|  +- Assembly Language
+|  +- FORTRAN
+|  +- APL
+|  +- Forth
++- Featured Collections
+   +- Data Processing Workflows
+   +- Scientific Computing
+   +- Interactive Graphics
+   +- System Programming
 ```
 
 ### Demo Page Layout
@@ -212,7 +212,7 @@ Each demo page includes:
 
 **Bottom Panel: Controls**
 - [ Load ] [ Run ] [ Step ] [ Reset ]
-- Speed control slider (1x → 100x)
+- Speed control slider (1x -> 100x)
 - Breakpoint controls
 - Execution timeline
 
@@ -233,23 +233,23 @@ Each hardware component page includes:
 Example (from IBM 1442 Card Reader page):
 
 ```
-┌─────────────────────────────────────────┐
-│ Try These Demos:                        │
-├─────────────────────────────────────────┤
-│ [▶] Read and Echo Cards (Beginner)     │
-│     Read 10 cards and print contents    │
-│                                         │
-│ [▶] Card Sort Program (Intermediate)    │
-│     Sort cards by column data           │
-│                                         │
-│ [▶] Load Source Deck (Advanced)         │
-│     Assembler reads source from cards   │
-└─────────────────────────────────────────┘
++-----------------------------------------+
+| Try These Demos:                        |
++-----------------------------------------+
+| [>] Read and Echo Cards (Beginner)     |
+|     Read 10 cards and print contents    |
+|                                         |
+| [>] Card Sort Program (Intermediate)    |
+|     Sort cards by column data           |
+|                                         |
+| [>] Load Source Deck (Advanced)         |
+|     Assembler reads source from cards   |
++-----------------------------------------+
 
 Related Demos Using This Device:
-• Data Processing Pipeline (3 devices) →
-• Card to Disk Transfer (2 devices) →
-• Batch Processing System (4 devices) →
+- Data Processing Pipeline (3 devices) ->
+- Card to Disk Transfer (2 devices) ->
+- Batch Processing System (4 devices) ->
 ```
 
 ## Visual Demonstration Features
@@ -275,11 +275,11 @@ Related Demos Using This Device:
 - Visual representation of memory layout
 - Color-coded regions: code (gray), data (blue), stack (green), I/O buffers (orange)
 - Highlight memory access in real-time (reads: cyan, writes: red)
-- Show data movement: memory ↔ registers ↔ I/O devices
+- Show data movement: memory <-> registers <-> I/O devices
 
 **Data Path Animation**
 - Animated arrows showing data movement
-- Example: Card reader → Memory → Printer
+- Example: Card reader -> Memory -> Printer
 - Timing-accurate animation (scaled to demo speed)
 
 **Device Buffer States**
@@ -291,18 +291,18 @@ Related Demos Using This Device:
 
 **CPU State Panel**
 ```
-┌─────────────────────────────────┐
-│ CPU Registers                   │
-├─────────────────────────────────┤
-│ ACC:  0x1234  [████████░░] 52%  │
-│ XR:   0x0100  [███░░░░░░░] 12%  │
-│ PC:   0x0456                    │
-│ IAR:  0x0450                    │
-├─────────────────────────────────┤
-│ Condition Codes                 │
-│ [✓] Carry  [✗] Overflow         │
-│ [✗] Zero   [✓] Negative         │
-└─────────────────────────────────┘
++---------------------------------+
+| CPU Registers                   |
++---------------------------------+
+| ACC:  0x1234  [########--] 52%  |
+| XR:   0x0100  [###-------] 12%  |
+| PC:   0x0456                    |
+| IAR:  0x0450                    |
++---------------------------------+
+| Condition Codes                 |
+| [[X]] Carry  [[ ]] Overflow         |
+| [[ ]] Zero   [[X]] Negative         |
++---------------------------------+
 ```
 
 **Memory Viewer**
@@ -416,7 +416,7 @@ BUFFER DS   80              80-character buffer
 
 **Visualization:**
 - Split-screen showing card reader, memory, and printer simultaneously
-- Data flow arrows: card → buffer → processing → output buffer → printer
+- Data flow arrows: card -> buffer -> processing -> output buffer -> printer
 - Highlight validation steps (green=pass, red=fail)
 - Show accumulating totals in memory
 
@@ -435,7 +435,7 @@ BUFFER DS   80              80-character buffer
 **Visualization:**
 - Disk map showing sectors being read/written
 - Memory viewer showing sort in progress (bubble sort or quicksort)
-- Merge visualization showing two input streams → one output
+- Merge visualization showing two input streams -> one output
 - Seek arm moving between cylinders
 
 ### Advanced Level
@@ -479,29 +479,54 @@ BUFFER DS   80              80-character buffer
 
 ### High-Level Language Demos
 
-#### APL Matrix Operations
-**Language:** APL
+#### APL\1130 Matrix Operations [AVAILABLE]
+**Language:** APL\1130 Version 2 (1969)
+**Source:** http://ibm1130.org/sw/ (apl_source.zip)
+**Status:** [OK] Ready for integration
 **Concepts:** Array programming, mathematical notation
 
+**Historical Note:** APL\1130 was the first publicly available APL system (Spring 1968) and the most popular IBM Type-III Library program ever released.
+
 ```apl
-⍝ Solve system of linear equations
-⍝ Using matrix operations
+; Solve system of linear equations
+; Using matrix operations
 
-A ← 3 3 ⍴ 2 1 1  1 3 2  1 1 2   ⍝ Coefficient matrix
-B ← 5 8 7                        ⍝ Constants
-X ← B ⌹ A                        ⍝ Solve A×X=B
+A  3 3  2 1 1  1 3 2  1 1 2   ; Coefficient matrix
+B  5 8 7                        ; Constants
+X  B  A                        ; Solve A??X=B
 
-'SOLUTION: ' , ⍕X
+'SOLUTION: ' , X
 ```
+
+**Available Examples:**
+- Matrix multiplication and inversion
+- Statistical functions (mean, variance, correlation)
+- Array manipulation demonstrations
+- Factorial and recursive operations
+
+**Implementation Details:**
+- V1: Single-character identifiers
+- V2: Extended 6-character identifiers (recommended)
+- 32-bit floating-point support
+- Configurable index origin (0 or 1)
+
+**Documentation:**
+- User Manual: 1130-03.3.001_APL_1130_May69.pdf (bitsavers)
+- Primer: C20-1697-0_APL_1130_Primer_1968.pdf (Paul Berry)
 
 **Visualization:**
 - Matrix contents displayed graphically
 - Operation steps shown algebraically
 - Memory allocation for arrays
+- APL workspace viewer
 
-#### Forth Stack Operations
-**Language:** Forth
+#### Forth Stack Operations [AVAILABLE]
+**Language:** Forth (1968 Original Implementation)
+**Source:** https://github.com/monsonite/1968-FORTH
+**Status:** [OK] Ready for integration
 **Concepts:** Stack-based programming, interactive development
+
+**Historical Note:** Original Forth created by Charles Moore in 1968 on IBM 1130 at Mohasco Industries. Named "FORTH" (not "FOURTH") due to 5-character identifier limit.
 
 ```forth
 : FACTORIAL  ( n -- n! )
@@ -512,10 +537,80 @@ X ← B ⌹ A                        ⍝ Solve A×X=B
 5 FACTORIAL .
 ```
 
+**Available Source:**
+- FORTH68asm.txt (645 lines of assembly)
+- FORTH68lst.txt (235 lines, original card deck)
+- FORTH-68_notes.txt (technical documentation)
+- Detailed analysis by Carl Claunch
+
+**Implementation Details:**
+- 28 primitive functions
+- Packed character strings (2 chars per 16-bit word)
+- Dictionary structure for extensibility
+- Dot-comma syntax (precursor to colon-semicolon)
+- Designed for IBM 2250 graphics programming
+
 **Visualization:**
-- Stack contents shown graphically
-- Word definitions and dictionary
-- Compilation vs. interpretation
+- Stack contents shown graphically (X1, X2, X3 registers)
+- Word definitions and dictionary structure
+- Compilation vs. interpretation phases
+- 2250 graphics output (if available)
+
+#### FORTRAN Scientific Computing [AVAILABLE]
+**Language:** FORTRAN IV (DMS R2V12)
+**Source:** SIMH distribution + IBM1130.org
+**Status:** [OK] Ready for integration
+
+**Available Examples:**
+1. **roots.job** - Root-finding algorithm
+2. **csort.job** - Sorting demonstration
+3. **list.job** - File listing utility
+
+**Scientific Subroutine Package (SSP) Demos:**
+- Matrix operations (multiplication, inversion)
+- Differential equation solvers
+- Statistical functions
+- Fourier transforms
+- Numerical integration
+
+**Implementation Details:**
+- Runs on 4,096-word systems
+- Compiler included in DMS R2V12
+- FORTRAN-EMU variant available (Eastern Michigan University)
+- Adds LOGICAL type and 6-letter variables
+
+**Visualization:**
+- Variable watch window
+- Array/matrix display
+- Call stack for subroutines
+- Batch job progress
+
+#### LISP 1.6 Symbolic Processing [AVAILABLE]
+**Language:** LISP 1.6
+**Source:** http://ibm1130.org/sw/lisp/
+**Status:** [OK] Ready for integration
+
+**Example Demonstrations:**
+```lisp
+(DEFUN FACTORIAL (N)
+  (COND
+    ((EQUAL N 0) 1)
+    (T (TIMES N (FACTORIAL (SUB1 N))))))
+
+(FACTORIAL 5)
+```
+
+**Available Features:**
+- Classic LISP functions (CAR, CDR, CONS)
+- Recursive function definitions
+- S-expression evaluation
+- List processing primitives
+
+**Visualization:**
+- List structure diagrams
+- Cons cell allocation
+- Garbage collection activity
+- Environment frames
 
 ## Implementation Plan
 
@@ -669,13 +764,105 @@ devices = ["1403"]
 - **Marketing materials:** Scanned brochures and manuals
 - **Oral histories:** Interviews with 1130 users
 
+## Software Availability and Integration
+
+See **`docs/software-research.md`** for complete details on available IBM 1130 software.
+
+### Confirmed Available Software
+
+**High Priority (Ready for Integration):**
+1. **APL\1130** - Source code at http://ibm1130.org/sw/ (apl_source.zip)
+2. **Forth (1968)** - GitHub: https://github.com/monsonite/1968-FORTH
+3. **FORTRAN IV** - Included in DMS R2V12 (SIMH distribution)
+4. **LISP 1.6** - Disk image at http://ibm1130.org/sw/lisp/
+
+**Medium Priority:**
+5. **RPG** - Included in DMS distributions
+6. **Algol 60** - Grenoble implementation (needs sourcing)
+
+**Lower Priority/Not Yet Located:**
+7. **COBOL** - Mentioned but limited availability
+8. **BASIC** - Needs university archive search
+
+### Download Repositories
+
+**Primary Sources:**
+- **IBM1130.org** - http://ibm1130.org/
+  - DMS R2V12 with FORTRAN
+  - APL\1130 source (apl_source.zip)
+  - LISP 1.6 disk image
+  - Extensive manual library
+
+- **SIMH GitHub** - https://github.com/simh/simh
+  - IBM 1130 simulator
+  - Sample FORTRAN programs (roots.job, csort.job, list.job)
+  - Cross-development tools (asm1130, diskview, etc.)
+
+- **Bitsavers.org** - http://bitsavers.org/pdf/ibm/1130/
+  - Complete documentation archive
+  - Language manuals
+  - System references
+
+- **1968 Forth** - https://github.com/monsonite/1968-FORTH
+  - Original source code
+  - Technical documentation
+  - Historical analysis
+
+### Integration Roadmap
+
+**Phase 1: Foundation (Weeks 1-2)**
+- Download and organize software (see `docs/data-organization.md`)
+- Set up `data/decks/` directory structure
+- Create normalization tools for card deck formats
+
+**Phase 2: APL Integration (Weeks 3-4)**
+- Assemble APL\1130 source
+- Create APL demo decks
+- Build APL workspace viewer
+- Test matrix operation examples
+
+**Phase 3: Forth Integration (Weeks 5-6)**
+- Assemble 1968 Forth source
+- Create stack visualization
+- Build dictionary browser
+- Test factorial and graphics examples
+
+**Phase 4: FORTRAN Demos (Weeks 7-8)**
+- Import SIMH sample programs
+- Create SSP library demos
+- Build batch job visualizer
+- Test scientific computation examples
+
+**Phase 5: Polish and Documentation (Weeks 9-10)**
+- Complete all visualizations
+- Write user tutorials
+- Create video demonstrations
+- Deploy to production
+
 ## Success Metrics
 
 - **Engagement:** Average time spent on Demos tab
 - **Completion:** Percentage of users who run at least 3 demos
 - **Diversity:** Usage across different demo categories
 - **Education:** User feedback on learning value
+- **Historical Value:** Downloads of source code and documentation
+
+## Related Documentation
+
+- **Software Research:** `docs/software-research.md` - Complete catalog of available software
+- **Data Organization:** `docs/data-organization.md` - Directory structure and file formats
+- **Process Guidelines:** `docs/process.md` - Development methodology
+- **TODO List:** `docs/todo.md` - Current tasks and technical debt
 
 ## Conclusion
 
-The Extended Demos initiative transforms the IBM 1130 simulator from a technical visualization tool into a comprehensive educational platform. By providing curated, interactive examples with rich visual feedback, we enable users to understand vintage computing concepts through hands-on experimentation. The phased implementation plan ensures steady progress toward a feature-rich, accessible learning environment.
+The Extended Demos initiative transforms the IBM 1130 simulator from a technical visualization tool into a comprehensive educational platform. By providing curated, interactive examples with rich visual feedback, we enable users to understand vintage computing concepts through hands-on experimentation.
+
+**Key Advantages:**
+- **Real Software:** Using actual IBM 1130 programs from the 1960s
+- **Historical Accuracy:** APL\1130 was the first public APL; Forth originated on the 1130
+- **Open Source:** All software available under IBM Type-III or public domain
+- **Educational Value:** Learn both vintage and modern programming concepts
+- **Preservation:** Keep computing history accessible for future generations
+
+The phased implementation plan, combined with confirmed software availability, ensures steady progress toward a feature-rich, accessible learning environment that honors the legacy of the IBM 1130 computing system.
