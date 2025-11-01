@@ -1,5 +1,6 @@
 pub mod card_reader;
 pub mod console;
+pub mod demo_viewer;
 pub mod demos;
 pub mod disk_map;
 pub mod hardware;

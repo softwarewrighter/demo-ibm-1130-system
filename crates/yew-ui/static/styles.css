@@ -1110,3 +1110,439 @@ footer {
         align-self: flex-start;
     }
 }
+
+/* ===================================================================
+   DEMO VIEWER STYLES
+   =================================================================== */
+
+.demo-viewer {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+}
+
+.viewer-empty {
+    text-align: center;
+    padding: 80px 20px;
+    color: #666;
+}
+
+.viewer-empty h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Viewer Header */
+
+.viewer-header {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.viewer-header h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.viewer-description {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.language-badge {
+    display: inline-block;
+    background: #E3F2FD;
+    color: #1565C0;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid #BBDEFB;
+}
+
+/* Execution Controls */
+
+.viewer-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.control-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.control-button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.load-button {
+    background: #4CAF50;
+    color: white;
+}
+
+.load-button:hover:not(:disabled) {
+    background: #45A049;
+}
+
+.run-button {
+    background: #2196F3;
+    color: white;
+}
+
+.run-button:hover:not(:disabled) {
+    background: #0B7DDA;
+}
+
+.step-button {
+    background: #FF9800;
+    color: white;
+}
+
+.step-button:hover:not(:disabled) {
+    background: #FB8C00;
+}
+
+.reset-button {
+    background: #757575;
+    color: white;
+}
+
+.reset-button:hover:not(:disabled) {
+    background: #616161;
+}
+
+.execution-status {
+    margin-left: auto;
+    padding: 10px 16px;
+    background: white;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Viewer Tabs */
+
+.viewer-tabs {
+    display: flex;
+    gap: 4px;
+    background: #e0e0e0;
+    padding: 4px;
+    border-radius: 8px 8px 0 0;
+}
+
+.viewer-tab {
+    flex: 1;
+    padding: 12px 20px;
+    background: transparent;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    border-radius: 6px 6px 0 0;
+    transition: all 0.2s ease;
+}
+
+.viewer-tab:hover {
+    background: rgba(255, 255, 255, 0.5);
+    color: #333;
+}
+
+.viewer-tab.active {
+    background: white;
+    color: #1565C0;
+    font-weight: 600;
+}
+
+/* Viewer Content */
+
+.viewer-content {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    min-height: 500px;
+}
+
+/* Code Panel */
+
+.code-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.code-toolbar {
+    padding: 12px 16px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.code-info {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.code-display {
+    flex: 1;
+    margin: 0;
+    padding: 20px;
+    background: #1e1e1e;
+    color: #d4d4d4;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    overflow: auto;
+}
+
+.code-display code {
+    color: inherit;
+}
+
+.code-footer {
+    padding: 10px 16px;
+    background: #f8f9fa;
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+.code-hint {
+    font-size: 13px;
+    color: #666;
+    font-style: italic;
+}
+
+/* State Panel */
+
+.state-panel {
+    padding: 20px;
+}
+
+.state-section {
+    margin-bottom: 30px;
+}
+
+.state-section h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1565C0;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.register-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.register-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+}
+
+.register-name {
+    font-weight: 600;
+    color: #333;
+}
+
+.register-value {
+    font-family: 'Consolas', 'Monaco', monospace;
+    color: #1565C0;
+    font-weight: 500;
+}
+
+.memory-view {
+    background: #1e1e1e;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.memory-view pre {
+    margin: 0;
+    color: #d4d4d4;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.device-status {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.device-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+}
+
+.device-name {
+    font-weight: 500;
+    color: #333;
+}
+
+.device-state {
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.device-state.ready {
+    color: #4CAF50;
+}
+
+.state-placeholder {
+    margin-top: 30px;
+    padding: 20px;
+    background: #FFF3E0;
+    border-left: 4px solid #FF9800;
+    border-radius: 4px;
+}
+
+.state-placeholder p {
+    margin: 0;
+    color: #E65100;
+    font-size: 14px;
+}
+
+/* Output Panel */
+
+.output-panel {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+}
+
+.output-toolbar {
+    padding: 12px 16px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.clear-output-button {
+    padding: 6px 12px;
+    background: #757575;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.clear-output-button:hover {
+    background: #616161;
+}
+
+.output-display {
+    flex: 1;
+    margin: 0;
+    padding: 20px;
+    background: white;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    overflow: auto;
+}
+
+/* Console Panel */
+
+.console-panel {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+}
+
+.console-toolbar {
+    padding: 12px 16px;
+    background: #263238;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.clear-console-button {
+    padding: 6px 12px;
+    background: #455A64;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.clear-console-button:hover {
+    background: #546E7A;
+}
+
+.console-display {
+    flex: 1;
+    margin: 0;
+    padding: 20px;
+    background: #1e1e1e;
+    color: #4CAF50;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    overflow: auto;
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    .viewer-controls {
+        flex-wrap: wrap;
+    }
+
+    .control-button {
+        flex: 1 1 calc(50% - 5px);
+    }
+
+    .execution-status {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .register-grid {
+        grid-template-columns: 1fr;
+    }
+}
