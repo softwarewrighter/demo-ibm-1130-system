@@ -106,7 +106,7 @@ impl HardwareDevice {
                 Some("/demo-ibm-1130-system/static/licensed-media/ibm-1403-printer.jpg")
             }
             HardwareDevice::CardReader1442 => {
-                Some("/demo-ibm-1130-system/static/licensed-media/ibm-1442-card-reader.jpg")
+                Some("/demo-ibm-1130-system/static/licensed-media/ibm1442-card-reader-clean.jpg")
             }
             HardwareDevice::Plotter1627 => {
                 Some("/demo-ibm-1130-system/static/licensed-media/calcomp-565-plotter.jpg")
@@ -140,9 +140,9 @@ impl HardwareDevice {
                 "https://creativecommons.org/licenses/by/2.0/",
             )),
             HardwareDevice::CardReader1442 => Some((
-                "Unknown",
-                "CC BY-SA 2.0",
-                "https://creativecommons.org/licenses/by-sa/2.0/",
+                "Mike Ross (corestore.org)",
+                "CC BY-SA 3.0",
+                "https://creativecommons.org/licenses/by-sa/3.0/",
             )),
             HardwareDevice::Plotter1627 => Some((
                 "Ryan Somma",
