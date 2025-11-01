@@ -186,11 +186,41 @@ cargo test --all
 cargo build --all
 ```
 
-**Never**:
+**NEVER** (Absolute Prohibitions):
 - Skip formatting or clippy checks
-- Use `#[allow(clippy::...)]` to disable warnings
-- Use `#[ignore]` to disable tests (without documentation)
+- Use `#[allow(clippy::...)]` to disable ANY clippy warnings
+- Use `#[allow(dead_code)]` to suppress unused code warnings
+- Use `#[allow(unused_imports)]`, `#[allow(unused_variables)]`, or similar suppressions
+- Use `#[ignore]` to disable tests without explicit documentation and issue tracking
 - Commit failing tests or code that doesn't compile
+- Suppress warnings instead of fixing the root cause
+
+**Proper Responses to Warnings:**
+- **Dead code** → Delete it completely OR actually use it in the codebase
+- **Unused imports** → Remove them immediately
+- **Clippy suggestions** → Apply the suggested fix
+- **Cannot fix immediately** → Create entry in `docs/todo.md` with tracking issue, do NOT suppress
+- **Disagree with clippy** → Discuss with maintainer, provide justification, do NOT suppress
+
+**Consequences of Violations:**
+- Creates technical debt that must be tracked and fixed later
+- Violates core project quality standards (see `docs/process.md`)
+- Requires additional cleanup commits
+- Sets bad precedent for future development
+
+**EXCEPTION POLICY:**
+The ONLY acceptable use of warning suppression is:
+1. Documented in an open GitHub issue explaining why
+2. Approved by project maintainer in issue comments
+3. Includes TODO comment with issue number: `#[allow(...)] // TODO(#123): Remove when fixed`
+4. Tracked in `docs/todo.md` with remediation plan
+
+If you are tempted to use `#[allow(...)]`, STOP and ask yourself:
+- Can I delete this code instead?
+- Can I fix the underlying issue properly?
+- Why am I avoiding the proper fix?
+
+The answer is almost always: fix it properly now, not later.
 
 ### Commit Standards
 Write detailed commit messages:
