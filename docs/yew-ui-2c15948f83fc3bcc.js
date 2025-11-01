@@ -192,7 +192,7 @@ const CLOSURE_DTORS = (typeof FinalizationRegistry === 'undefined')
     ? { register: () => {}, unregister: () => {} }
     : new FinalizationRegistry(state => state.dtor(state.a, state.b));
 
-function makeMutClosure(arg0, arg1, dtor, f) {
+function makeClosure(arg0, arg1, dtor, f) {
     const state = { a: arg0, b: arg1, cnt: 1, dtor };
     const real = (...args) => {
 
@@ -200,12 +200,9 @@ function makeMutClosure(arg0, arg1, dtor, f) {
         // count. This ensures that the Rust closure environment won't
         // be deallocated while we're invoking it.
         state.cnt++;
-        const a = state.a;
-        state.a = 0;
         try {
-            return f(a, state.b, ...args);
+            return f(state.a, state.b, ...args);
         } finally {
-            state.a = a;
             real._wbg_cb_unref();
         }
     };
@@ -220,7 +217,7 @@ function makeMutClosure(arg0, arg1, dtor, f) {
     return real;
 }
 
-function makeClosure(arg0, arg1, dtor, f) {
+function makeMutClosure(arg0, arg1, dtor, f) {
     const state = { a: arg0, b: arg1, cnt: 1, dtor };
     const real = (...args) => {
 
@@ -228,9 +225,12 @@ function makeClosure(arg0, arg1, dtor, f) {
         // count. This ensures that the Rust closure environment won't
         // be deallocated while we're invoking it.
         state.cnt++;
+        const a = state.a;
+        state.a = 0;
         try {
-            return f(state.a, state.b, ...args);
+            return f(a, state.b, ...args);
         } finally {
+            state.a = a;
             real._wbg_cb_unref();
         }
     };
@@ -585,19 +585,19 @@ function __wbg_get_imports() {
         getDataViewMemory0().setInt32(arg0 + 4 * 1, len1, true);
         getDataViewMemory0().setInt32(arg0 + 4 * 0, ptr1, true);
     };
-    imports.wbg.__wbindgen_cast_18dd738794d8ed40 = function(arg0, arg1) {
-        // Cast intrinsic for `Closure(Closure { dtor_idx: 238, function: Function { arguments: [Externref], shim_idx: 239, ret: Unit, inner_ret: Some(Unit) }, mutable: true }) -> Externref`.
-        const ret = makeMutClosure(arg0, arg1, wasm.wasm_bindgen__closure__destroy__hc5b82813ccc0019f, wasm_bindgen__convert__closures_____invoke__h09b5a5232ce15ea3);
-        return ret;
-    };
     imports.wbg.__wbindgen_cast_2241b6af4c4b2941 = function(arg0, arg1) {
         // Cast intrinsic for `Ref(String) -> Externref`.
         const ret = getStringFromWasm0(arg0, arg1);
         return ret;
     };
-    imports.wbg.__wbindgen_cast_78182221504beab0 = function(arg0, arg1) {
-        // Cast intrinsic for `Closure(Closure { dtor_idx: 178, function: Function { arguments: [Ref(NamedExternref("Event"))], shim_idx: 179, ret: Unit, inner_ret: Some(Unit) }, mutable: false }) -> Externref`.
+    imports.wbg.__wbindgen_cast_54a898cf2b7c5c03 = function(arg0, arg1) {
+        // Cast intrinsic for `Closure(Closure { dtor_idx: 242, function: Function { arguments: [Ref(NamedExternref("Event"))], shim_idx: 243, ret: Unit, inner_ret: Some(Unit) }, mutable: false }) -> Externref`.
         const ret = makeClosure(arg0, arg1, wasm.wasm_bindgen__closure__destroy__hd871c18db8c9490a, wasm_bindgen__convert__closures________invoke__h5ae201fd903d83a4);
+        return ret;
+    };
+    imports.wbg.__wbindgen_cast_fde211b33a481aba = function(arg0, arg1) {
+        // Cast intrinsic for `Closure(Closure { dtor_idx: 302, function: Function { arguments: [Externref], shim_idx: 303, ret: Unit, inner_ret: Some(Unit) }, mutable: true }) -> Externref`.
+        const ret = makeMutClosure(arg0, arg1, wasm.wasm_bindgen__closure__destroy__hc5b82813ccc0019f, wasm_bindgen__convert__closures_____invoke__h09b5a5232ce15ea3);
         return ret;
     };
     imports.wbg.__wbindgen_init_externref_table = function() {
