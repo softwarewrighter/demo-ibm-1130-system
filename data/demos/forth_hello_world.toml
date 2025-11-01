@@ -1,0 +1,81 @@
+# FORTH Hello World Demo (Placeholder)
+# This is a placeholder for educational demo content
+
+[demo]
+id = "forth_hello_world"
+title = "FORTH Hello World"
+language = "FORTH"
+difficulty = "beginner"
+estimated_runtime_ms = 50
+
+description = """
+This demo introduces FORTH, the stack-based language created by Charles Moore \
+in 1968 on the IBM 1130. FORTH revolutionized programming with its simple yet \
+powerful approach to defining new words (functions) from existing primitives.
+
+Key concepts demonstrated:
+- Stack-based computation
+- Word definitions
+- String output
+- Basic FORTH syntax
+"""
+
+[source]
+# NOTE: Actual 1968-FORTH software requires download via utility scripts
+# This placeholder uses example code for UI demonstration
+code = """
+( Hello World in FORTH )
+: HELLO  ." Hello, World from 1968 FORTH!" ;
+
+HELLO
+
+( Stack operations )
+: SQUARE  DUP * ;
+5 SQUARE .
+
+( Define a word to print multiple greetings )
+: GREET  3 0 DO ." Hello! " LOOP ;
+GREET
+"""
+
+expected_output = """
+Hello, World from 1968 FORTH!
+25
+Hello! Hello! Hello!
+ ok
+"""
+
+[emulator]
+# Requirements for running this demo
+memory_words = 4096
+disk_sectors = 100
+requires_forth_system = true
+
+# Link to download utility (not included in repo)
+download_utility = "scripts/download_forth1968.sh"
+
+[educational]
+topics = ["stack-based programming", "FORTH", "word definitions", "reverse Polish notation"]
+prerequisites = ["Basic programming concepts", "Understanding of stacks"]
+learning_objectives = [
+    "Understand stack-based computation",
+    "Learn FORTH word definition syntax",
+    "See how complex operations build from simple primitives"
+]
+
+[historical]
+significance = """
+This is the original FORTH implementation created by Charles Moore in 1968. \
+It predates modern FORTH standards and shows the language in its earliest form. \
+The code demonstrates Moore's minimalist philosophy and the power of \
+extensible languages.
+"""
+
+[attribution]
+# Original software attribution
+original_software = "1968-FORTH for IBM 1130"
+original_author = "Charles Moore (1968)"
+preserved_by = "Carl Claunch, Ken Boak (monsonite)"
+github_repo = "https://github.com/monsonite/1968-FORTH"
+educational_use = "Fair use for educational demonstration and commentary"
+notes = "Listings discovered ~2011, restoration work by Carl Claunch in 2018"

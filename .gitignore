@@ -2,3 +2,7 @@
 **/*.rs.bk
 **/.DS_Store
 crates/yew-ui/dist
+
+# Downloaded third-party software (not redistributed due to unclear licenses)
+# Use download utilities to fetch locally for fair use educational purposes
+/tmp

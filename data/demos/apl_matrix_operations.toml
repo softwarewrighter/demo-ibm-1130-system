@@ -1,0 +1,102 @@
+# APL Matrix Operations Demo (Placeholder)
+# This is a placeholder for educational demo content
+
+[demo]
+id = "apl_matrix_operations"
+title = "APL Matrix Operations"
+language = "APL"
+difficulty = "beginner"
+estimated_runtime_ms = 100
+
+description = """
+This demo showcases APL's powerful array processing capabilities through \
+matrix arithmetic operations. APL (A Programming Language) was revolutionary \
+for its concise mathematical notation and right-to-left evaluation.
+
+Key concepts demonstrated:
+- Array creation with reshape (⍴) and index (⍳)
+- Element-wise operations
+- Matrix multiplication with inner product (+.×)
+- Transpose operation (⍉)
+- Reduction operations (+/)
+"""
+
+[source]
+# NOTE: Actual APL\1130 software requires download via utility scripts
+# This placeholder uses example code for UI demonstration
+code = """
+      ⍝ Create a 3×3 matrix with values 1-9
+      A ← 3 3 ⍴ ⍳9
+
+      ⍝ Create another 3×3 matrix
+      B ← 3 3 ⍴ 9 8 7 6 5 4 3 2 1
+
+      ⍝ Add matrices element-wise
+      A + B
+
+      ⍝ Matrix multiplication (inner product)
+      A +.× B
+
+      ⍝ Transpose matrix A
+      ⍉A
+
+      ⍝ Sum all elements
+      +/,A
+"""
+
+expected_output = """
+      A ← 3 3 ⍴ ⍳9
+      A
+1 2 3
+4 5 6
+7 8 9
+
+      B ← 3 3 ⍴ 9 8 7 6 5 4 3 2 1
+      B
+9 8 7
+6 5 4
+3 2 1
+
+      A + B
+10 10 10
+10 10 10
+10 10 10
+
+      A +.× B
+ 30  24  18
+ 84  69  54
+138 114  90
+
+      ⍉A
+1 4 7
+2 5 8
+3 6 9
+
+      +/,A
+45
+"""
+
+[emulator]
+# Requirements for running this demo
+memory_words = 8192
+disk_sectors = 200
+requires_apl_system = true
+
+# Link to download utility (not included in repo)
+download_utility = "scripts/download_apl1130.sh"
+
+[educational]
+topics = ["array programming", "matrix operations", "APL syntax", "mathematical notation"]
+prerequisites = ["Basic matrix algebra", "Understanding of array indexing"]
+learning_objectives = [
+    "Understand APL's array-oriented approach",
+    "Learn basic APL operators and syntax",
+    "See the power of concise mathematical notation"
+]
+
+[attribution]
+# Original software attribution
+original_software = "APL\\1130"
+original_author = "IBM (1969)"
+preserved_by = "IBM1130.org, Robert Marinelli, John Slazenger"
+educational_use = "Fair use for educational demonstration and commentary"
