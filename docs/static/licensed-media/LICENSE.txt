@@ -84,6 +84,35 @@ MODIFICATIONS: None
 ATTRIBUTION:
 "IBM1442 (1)" is licensed under CC BY-SA 2.0.
 
+NOTE: This image is being retained for archival purposes. The primary 1442
+      image has been updated to ibm1442-card-reader-clean.jpg (see below).
+
+================================================================================
+
+FILE: ibm1442-card-reader-clean.jpg
+
+TITLE: IBM 1442 Card Reader/Punch I
+DESCRIPTION: IBM 1442 Card Reader/Punch unit. This photo shows a cleaner view
+             of the device compared to the previous 1442 image, making it more
+             suitable for hardware reference documentation.
+AUTHOR: Mike Ross (corestore.org)
+DATE: 15 August 2004
+SOURCE: https://commons.wikimedia.org/wiki/File:IBM1442.corestore.jpg
+ORIGINAL SOURCE: http://corestore.org (permission given via email to Wikimedia)
+LICENSE: Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
+         AND GNU Free Documentation License, Version 1.2 or later
+LICENSE URL: https://creativecommons.org/licenses/by-sa/3.0/
+             https://www.gnu.org/licenses/old-licenses/fdl-1.2.html
+
+DIMENSIONS: 383 × 402 pixels
+MODIFICATIONS: None
+
+ATTRIBUTION:
+"IBM1442.corestore" by Mike Ross (corestore.org) is licensed under CC BY-SA 3.0.
+
+PERMISSIONS: Mike Ross gave permission via email to Wikimedia Commons to use
+             this photo. Dual-licensed under GFDL 1.2+ and CC BY-SA 3.0.
+
 ================================================================================
 
 FILE: ibm-1403-printer.jpg
