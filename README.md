@@ -6,9 +6,13 @@ A historically accurate simulator for the IBM 1130 computer system, written in R
 
 **[Try the live demo ->](https://softwarewrighter.github.io/demo-ibm-1130-system/)**
 
-![IBM 1130 Disk Simulator Screenshot](images/screenshot.png)
+![IBM 1130 System Simulator - Overview](images/screenshot.png)
 
-*Browser-based disk visualization showing IBM 2315 cartridge geometry with cylinder/head/sector layout*
+*Overview tab introducing the IBM 1130 system and simulator features*
+
+![IBM 1130 Hardware Catalog](images/screenshot-hardware-1131.png)
+
+*Hardware tab showing IBM 1131 CPU console with sidebar navigation and detailed component descriptions*
 
 ## Overview
 
