@@ -294,7 +294,14 @@ Create an educational, browser-based simulator of IBM 1130 peripheral devices th
 
 ## Out of Scope (Not in This Release)
 
-- Full IBM 1130 CPU simulation
+- **Full IBM 1130 CPU simulation** - Note: The 1131 CPU console is actually composed of multiple distinct interactive components that would need separate UI implementations:
+  - Console keyboard (alphanumeric input)
+  - Console switches and indicators (program load switches, run/stop, etc.)
+  - Console printer (IBM Selectric-style type-ball printer with interchangeable fonts including APL)
+  - Console indicators (register displays showing ACC, EXT, IAR, XR1-3, etc.)
+  - Mode/function knob (run/load/display modes)
+  - Each of these components represents a separate interactive UI element, some of which are already implemented elsewhere and would need integration
+  - The type-ball printer simulator will be particularly important for APL demonstrations
 - Execution of arbitrary IBM 1130 programs
 - Network/multi-user features
 - Mobile device support (tablet/phone)

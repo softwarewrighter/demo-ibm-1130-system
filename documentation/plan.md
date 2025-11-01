@@ -262,10 +262,22 @@ The IBM 1130 System Simulator development is organized into milestones, each del
 - Multi-device coordination
 
 ### Milestone 13: CPU Integration (Phase 2)
+
+**Note**: The IBM 1131 CPU console is not a single component, but rather multiple distinct interactive UI elements:
+- **Console Keyboard**: Alphanumeric input device (separate from console printer)
+- **Console Switches & Indicators**: Program load switches, run/stop controls, power switches
+- **Console Printer**: IBM Selectric-style type-ball printer with interchangeable fonts (critical for APL demonstrations)
+  - Type-ball mechanism allows different character sets (APL symbols, FORTRAN, etc.)
+  - Already may have partial implementations elsewhere that need integration
+- **Console Indicators**: Visual display of CPU registers (ACC, EXT, IAR, XR1, XR2, XR3)
+- **Mode/Function Knob**: Selector for run/load/display/single-step modes
+
+**Tasks**:
 - I/O channel protocol
 - Interrupt handling
 - DMA simulation
-- Execute simple programs
+- Console component architecture design
+- Execute simple programs (will require at minimum console printer for APL)
 
 ### Milestone 14: Historical Software (Phase 3)
 - Load real DMS disk images

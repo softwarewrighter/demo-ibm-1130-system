@@ -318,11 +318,24 @@ TimingModel allows swapping timing strategies without changing device logic.
 ## Future Architecture Considerations
 
 ### CPU Integration (Phase 2)
-When CPU simulation is added:
+When CPU simulation is added, note that the IBM 1131 CPU console is actually composed of multiple distinct interactive components that will need separate UI implementations:
+
+**Console Components**:
+- **Console Keyboard**: Alphanumeric input device (independent from console printer)
+- **Console Switches & Indicators**: Program load switches, run/stop, single-step controls
+- **Console Printer**: IBM Selectric-style type-ball printer
+  - Interchangeable type-ball elements for different character sets (APL, FORTRAN, etc.)
+  - Critical for APL demonstrations - APL symbols must be rendered correctly
+  - May have partial implementations elsewhere requiring integration
+- **Console Indicators**: Register displays (ACC, EXT, IAR, XR1-3)
+- **Mode/Function Knob**: Run/Load/Display/Single-step mode selector
+
+**Core Architecture Changes**:
 - Extend ChannelBus trait for full I/O channel protocol
 - Implement interrupt handling
 - Add DMA simulation
 - Memory-mapped I/O
+- Console component bridge architecture for coordinating multiple UI elements
 
 ### Multi-User Support (Future)
 - WebSocket server for shared simulation state
