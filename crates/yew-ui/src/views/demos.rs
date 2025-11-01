@@ -79,14 +79,14 @@ impl Demo {
                 description: "Interactive APL\\1130 session showing matrix arithmetic, array operations, and the iconic APL notation.",
                 category: DemoCategory::Languages,
                 tags: &["APL", "Matrix", "Interactive"],
-                available: true,
+                available: false,
             },
             Demo {
                 title: "Forth Stack Machine",
                 description: "Charles Moore's original 1968 Forth implementation. See the birth of stack-based programming.",
                 category: DemoCategory::Languages,
                 tags: &["Forth", "Historical", "Interactive"],
-                available: true,
+                available: false,
             },
             Demo {
                 title: "Batch Job Processing",
@@ -204,7 +204,8 @@ pub fn demos() -> Html {
 
             <div class="demos-footer">
                 <p>
-                    { "More demos are in development. See " }
+                    { "Demo viewer infrastructure is in development. Once complete, you'll be able to launch \
+                       interactive demonstrations directly in your browser. See " }
                     <a href="https://github.com/softwarewrighter/demo-ibm-1130-system/blob/main/docs/extended-demos.md"
                        target="_blank"
                        rel="noopener noreferrer">
