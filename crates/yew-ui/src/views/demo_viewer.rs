@@ -1,7 +1,6 @@
 use yew::prelude::*;
 
 /// Tab selection for demo viewer
-#[allow(dead_code)] // Used in Phase 2b when viewer is integrated
 #[derive(Clone, Copy, PartialEq)]
 pub enum ViewerTab {
     Code,
@@ -11,7 +10,7 @@ pub enum ViewerTab {
 }
 
 impl ViewerTab {
-    #[allow(dead_code)] // Used in Phase 2b when viewer is integrated
+    #[allow(dead_code)] // Will be used when adding tab titles to UI
     pub fn title(&self) -> &'static str {
         match self {
             ViewerTab::Code => "Code",
@@ -23,36 +22,33 @@ impl ViewerTab {
 }
 
 /// Execution state of the demo
-#[allow(dead_code)] // Used in Phase 2b when viewer is integrated
 #[derive(Clone, Copy, PartialEq, Debug)]
 pub enum ExecutionState {
     NotLoaded,
     Ready,
     Running,
     Paused,
+    #[allow(dead_code)] // Will be used when emulator backend is connected
     Completed,
+    #[allow(dead_code)] // Will be used when emulator backend is connected
     Error,
 }
 
 impl ExecutionState {
-    #[allow(dead_code)] // Used in Phase 2b when viewer is integrated
     pub fn can_run(&self) -> bool {
         matches!(self, ExecutionState::Ready | ExecutionState::Paused)
     }
 
-    #[allow(dead_code)] // Used in Phase 2b when viewer is integrated
     pub fn can_step(&self) -> bool {
         matches!(self, ExecutionState::Ready | ExecutionState::Paused)
     }
 
-    #[allow(dead_code)] // Used in Phase 2b when viewer is integrated
     pub fn can_reset(&self) -> bool {
         !matches!(self, ExecutionState::NotLoaded)
     }
 }
 
 /// Demo metadata structure
-#[allow(dead_code)] // Used in Phase 2b when viewer is integrated
 #[derive(Clone, PartialEq)]
 pub struct DemoMetadata {
     pub title: String,
@@ -62,7 +58,6 @@ pub struct DemoMetadata {
 }
 
 /// Properties for DemoViewer component
-#[allow(dead_code)] // Used in Phase 2b when viewer is integrated
 #[derive(Properties, PartialEq)]
 pub struct DemoViewerProps {
     pub demo_id: Option<String>,
@@ -221,7 +216,6 @@ pub fn demo_viewer(props: &DemoViewerProps) -> Html {
 }
 
 /// Code display panel
-#[allow(dead_code)] // Used in Phase 2b when viewer is integrated
 #[derive(Properties, PartialEq)]
 struct CodePanelProps {
     source: String,

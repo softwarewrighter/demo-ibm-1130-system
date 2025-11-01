@@ -615,18 +615,18 @@ function __wbg_get_imports() {
         getDataViewMemory0().setInt32(arg0 + 4 * 1, len1, true);
         getDataViewMemory0().setInt32(arg0 + 4 * 0, ptr1, true);
     };
-    imports.wbg.__wbindgen_cast_133053e9d0cd85aa = function(arg0, arg1) {
-        // Cast intrinsic for `Closure(Closure { dtor_idx: 422, function: Function { arguments: [Externref], shim_idx: 423, ret: Unit, inner_ret: Some(Unit) }, mutable: true }) -> Externref`.
-        const ret = makeMutClosure(arg0, arg1, wasm.wasm_bindgen__closure__destroy__hf476706d03db3c74, wasm_bindgen__convert__closures_____invoke__hfc91d4e560022bd1);
-        return ret;
-    };
     imports.wbg.__wbindgen_cast_2241b6af4c4b2941 = function(arg0, arg1) {
         // Cast intrinsic for `Ref(String) -> Externref`.
         const ret = getStringFromWasm0(arg0, arg1);
         return ret;
     };
-    imports.wbg.__wbindgen_cast_91052936635b0881 = function(arg0, arg1) {
-        // Cast intrinsic for `Closure(Closure { dtor_idx: 364, function: Function { arguments: [Ref(NamedExternref("Event"))], shim_idx: 365, ret: Unit, inner_ret: Some(Unit) }, mutable: false }) -> Externref`.
+    imports.wbg.__wbindgen_cast_aadbbfb8faec4666 = function(arg0, arg1) {
+        // Cast intrinsic for `Closure(Closure { dtor_idx: 634, function: Function { arguments: [Externref], shim_idx: 635, ret: Unit, inner_ret: Some(Unit) }, mutable: true }) -> Externref`.
+        const ret = makeMutClosure(arg0, arg1, wasm.wasm_bindgen__closure__destroy__hf476706d03db3c74, wasm_bindgen__convert__closures_____invoke__hfc91d4e560022bd1);
+        return ret;
+    };
+    imports.wbg.__wbindgen_cast_b1600d5083f882bf = function(arg0, arg1) {
+        // Cast intrinsic for `Closure(Closure { dtor_idx: 576, function: Function { arguments: [Ref(NamedExternref("Event"))], shim_idx: 577, ret: Unit, inner_ret: Some(Unit) }, mutable: false }) -> Externref`.
         const ret = makeClosure(arg0, arg1, wasm.wasm_bindgen__closure__destroy__h61b8291ff176bad3, wasm_bindgen__convert__closures________invoke__h79863ee728d06015);
         return ret;
     };

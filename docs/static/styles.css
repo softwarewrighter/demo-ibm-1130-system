@@ -1525,6 +1525,46 @@ footer {
     overflow: auto;
 }
 
+/* Demo Viewer Container and Navigation */
+
+.demo-viewer-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.demo-viewer-header {
+    margin-bottom: 20px;
+    padding: 10px 0;
+}
+
+.back-to-demos-button {
+    padding: 12px 24px;
+    background: #546E7A;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.back-to-demos-button:hover {
+    background: #455A64;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.back-to-demos-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 /* Responsive Design */
 
 @media (max-width: 768px) {
