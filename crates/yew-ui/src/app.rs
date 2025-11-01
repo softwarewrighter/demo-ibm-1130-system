@@ -2,6 +2,7 @@ use crate::views::{
     hardware::{Hardware, HardwareDevice},
     header_nav::{HeaderNav, Tab},
     overview::Overview,
+    reference::Reference,
 };
 use yew::prelude::*;
 
@@ -37,6 +38,7 @@ pub fn app() -> Html {
                                 on_device_change={on_device_change}
                             />
                         },
+                        Tab::Reference => html! { <Reference /> },
                     }
                 }
             </main>

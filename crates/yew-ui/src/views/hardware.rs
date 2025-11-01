@@ -93,13 +93,25 @@ impl HardwareDevice {
 
     pub fn image_path(&self) -> Option<&'static str> {
         match self {
-            HardwareDevice::Cpu1131 => Some("/demo-ibm-1130-system/static/licensed-media/ibm-1130-console.jpg"),
-            HardwareDevice::Printer1132 => Some("/demo-ibm-1130-system/static/licensed-media/ibm-1132-printer.jpg"),
+            HardwareDevice::Cpu1131 => {
+                Some("/demo-ibm-1130-system/static/licensed-media/ibm-1130-console.jpg")
+            }
+            HardwareDevice::Printer1132 => {
+                Some("/demo-ibm-1130-system/static/licensed-media/ibm-1132-printer.jpg")
+            }
             HardwareDevice::Multiplexor1133 => None, // We don't have a 1133 image yet
-            HardwareDevice::Printer1403 => Some("/demo-ibm-1130-system/static/licensed-media/ibm-1403-printer.jpg"),
-            HardwareDevice::CardReader1442 => Some("/demo-ibm-1130-system/static/licensed-media/ibm-1442-card-reader.jpg"),
-            HardwareDevice::Plotter1627 => Some("/demo-ibm-1130-system/static/licensed-media/calcomp-565-plotter.jpg"),
-            HardwareDevice::Display2250 => Some("/demo-ibm-1130-system/static/licensed-media/ibm-2250-display.png"),
+            HardwareDevice::Printer1403 => {
+                Some("/demo-ibm-1130-system/static/licensed-media/ibm-1403-printer.jpg")
+            }
+            HardwareDevice::CardReader1442 => {
+                Some("/demo-ibm-1130-system/static/licensed-media/ibm-1442-card-reader.jpg")
+            }
+            HardwareDevice::Plotter1627 => {
+                Some("/demo-ibm-1130-system/static/licensed-media/calcomp-565-plotter.jpg")
+            }
+            HardwareDevice::Display2250 => {
+                Some("/demo-ibm-1130-system/static/licensed-media/ibm-2250-display.png")
+            }
         }
     }
 
@@ -108,33 +120,33 @@ impl HardwareDevice {
             HardwareDevice::Cpu1131 => Some((
                 "ArnoldReinhold",
                 "CC BY-SA 3.0",
-                "https://creativecommons.org/licenses/by-sa/3.0/"
+                "https://creativecommons.org/licenses/by-sa/3.0/",
             )),
             HardwareDevice::Printer1132 => Some((
                 "ThisIsNotABetter",
                 "CC BY-SA 2.0",
-                "https://creativecommons.org/licenses/by-sa/2.0/"
+                "https://creativecommons.org/licenses/by-sa/2.0/",
             )),
             HardwareDevice::Multiplexor1133 => None,
             HardwareDevice::Printer1403 => Some((
                 "inra.dist (Jean Weber)",
                 "CC BY 2.0",
-                "https://creativecommons.org/licenses/by/2.0/"
+                "https://creativecommons.org/licenses/by/2.0/",
             )),
             HardwareDevice::CardReader1442 => Some((
                 "Unknown",
                 "CC BY-SA 2.0",
-                "https://creativecommons.org/licenses/by-sa/2.0/"
+                "https://creativecommons.org/licenses/by-sa/2.0/",
             )),
             HardwareDevice::Plotter1627 => Some((
                 "Ryan Somma",
                 "CC BY-SA 2.0",
-                "https://creativecommons.org/licenses/by-sa/2.0/"
+                "https://creativecommons.org/licenses/by-sa/2.0/",
             )),
             HardwareDevice::Display2250 => Some((
                 "Grlloyd",
                 "CC BY-SA 4.0",
-                "https://creativecommons.org/licenses/by-sa/4.0/"
+                "https://creativecommons.org/licenses/by-sa/4.0/",
             )),
         }
     }
@@ -148,7 +160,7 @@ pub struct HardwareProps {
 
 #[function_component(Hardware)]
 pub fn hardware(props: &HardwareProps) -> Html {
-    let devices = vec![
+    let devices = [
         HardwareDevice::Cpu1131,
         HardwareDevice::Printer1132,
         HardwareDevice::Multiplexor1133,

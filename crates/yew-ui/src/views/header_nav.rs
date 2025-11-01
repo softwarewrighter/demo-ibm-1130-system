@@ -4,6 +4,7 @@ use yew::prelude::*;
 pub enum Tab {
     Overview,
     Hardware,
+    Reference,
 }
 
 #[derive(Properties, PartialEq)]
@@ -24,6 +25,11 @@ pub fn header_nav(props: &HeaderNavProps) -> Html {
         Callback::from(move |_| on_tab_change.emit(Tab::Hardware))
     };
 
+    let on_reference_click = {
+        let on_tab_change = props.on_tab_change.clone();
+        Callback::from(move |_| on_tab_change.emit(Tab::Reference))
+    };
+
     html! {
         <header class="app-header">
             <div class="header-content">
@@ -40,6 +46,12 @@ pub fn header_nav(props: &HeaderNavProps) -> Html {
                         onclick={on_hardware_click}
                     >
                         { "Hardware" }
+                    </button>
+                    <button
+                        class={classes!("nav-tab", (props.current_tab == Tab::Reference).then_some("active"))}
+                        onclick={on_reference_click}
+                    >
+                        { "Reference" }
                     </button>
                 </nav>
             </div>

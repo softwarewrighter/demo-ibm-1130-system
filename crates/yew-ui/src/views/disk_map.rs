@@ -4,6 +4,7 @@ use gloo::file::callbacks::FileReader;
 use web_sys::HtmlInputElement;
 use yew::prelude::*;
 
+#[allow(dead_code)]
 #[derive(Clone, PartialEq)]
 pub struct DiskState {
     pub geometry: Geometry,
@@ -122,6 +123,7 @@ pub fn disk_map() -> Html {
     }
 }
 
+#[allow(dead_code)]
 fn render_disk_grid(
     disk_state: &DiskState,
     hover_sector: &UseStateHandle<Option<(u16, u8, u8)>>,
@@ -158,6 +160,7 @@ fn render_disk_grid(
     }
 }
 
+#[allow(dead_code)]
 fn render_head_sectors(
     disk_state: &DiskState,
     cyl: u16,
@@ -175,6 +178,7 @@ fn render_head_sectors(
     }
 }
 
+#[allow(dead_code)]
 fn render_sector(
     disk_state: &DiskState,
     cyl: u16,
@@ -221,6 +225,7 @@ fn render_sector(
     }
 }
 
+#[allow(dead_code)]
 fn calculate_sector_index(geo: &Geometry, cyl: u16, head: u8, sector: u8) -> usize {
     let sectors_per_cyl = geo.heads as usize * geo.sectors_per_track as usize;
     cyl as usize * sectors_per_cyl
@@ -228,6 +233,7 @@ fn calculate_sector_index(geo: &Geometry, cyl: u16, head: u8, sector: u8) -> usi
         + sector as usize
 }
 
+#[allow(dead_code)]
 fn parse_dsk_bytes(bytes: &[u8]) -> Result<(Geometry, Vec<u16>), String> {
     // Simple in-memory parser (we can't use file_io::read_dsk_file directly in WASM)
     if bytes.len() < 48 {

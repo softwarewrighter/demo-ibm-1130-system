@@ -4,4 +4,5 @@ pub mod disk_map;
 pub mod hardware;
 pub mod header_nav;
 pub mod overview;
+pub mod reference;
 pub mod status_bar;
