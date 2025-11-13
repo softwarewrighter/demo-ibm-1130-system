@@ -10,3 +10,5 @@ pub mod overview;
 pub mod playground;
 pub mod reference;
 pub mod status_bar;
+pub mod tutorial_browser;
+pub mod tutorial_viewer;

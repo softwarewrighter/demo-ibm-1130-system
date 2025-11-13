@@ -1,189 +1,275 @@
 use crate::models::educational::{
-    Challenge, ChallengeCategory, Difficulty, LearningProgress, Tutorial, TutorialCategory,
+    Difficulty, LearningProgress, QuizQuestion, Tutorial, TutorialCategory, TutorialSection,
+    TutorialWithContent,
 };
+use crate::views::{tutorial_browser::TutorialBrowser, tutorial_viewer::TutorialViewer};
 use yew::prelude::*;
+
+/// Create sample tutorial content for demo
+fn create_sample_tutorials() -> Vec<TutorialWithContent> {
+    vec![
+        TutorialWithContent::new(
+            {
+                let mut t = Tutorial::new(
+                    "welcome",
+                    "Welcome to the IBM 1130",
+                    TutorialCategory::GettingStarted,
+                    Difficulty::Beginner,
+                );
+                t.estimated_minutes = 10;
+                t.learning_objectives = vec![
+                    "Understand the IBM 1130 system".to_string(),
+                    "Learn basic instruction format".to_string(),
+                ];
+                t.available = true;
+                t
+            },
+            vec![
+                TutorialSection::Theory {
+                    title: "Introduction to IBM 1130".to_string(),
+                    content: r#"The IBM 1130 was a 16-bit minicomputer introduced in 1965.
+
+Key Features:
+- 16-bit word architecture
+- 2 microsecond cycle time
+- Up to 32KB of core memory
+- Removable disk storage (2315 cartridges)
+- Card reader, line printer, and plotter support
+
+The 1130 was one of the first truly affordable computers for
+small businesses and universities."#
+                        .to_string(),
+                },
+                TutorialSection::Theory {
+                    title: "Instruction Format".to_string(),
+                    content: r#"Every IBM 1130 instruction is 16 bits (1 word):
+
+Format: [Opcode(6 bits)] [Tag(2 bits)] [Displacement(8 bits)]
+
+- Opcode: What operation to perform (LD, STO, ADD, etc.)
+- Tag: Index register selection (0=none, 1=XR1, 2=XR2, 3=XR3)
+- Displacement: Memory address or offset
+
+Example: LD 100
+Loads the value from memory address 100 into the accumulator."#
+                        .to_string(),
+                },
+                TutorialSection::HandsOn {
+                    title: "Try Your First Instruction".to_string(),
+                    instructions: "Write a simple program that loads the value 42 into the accumulator and halts."
+                        .to_string(),
+                    starter_code: "        * Your code here\n        WAIT\n".to_string(),
+                    hints: vec![
+                        "Use the LD instruction with a literal: LD =42".to_string(),
+                        "The equals sign (=) means use the value directly, not as a memory address"
+                            .to_string(),
+                    ],
+                    solution: "        LD   =42      * Load literal 42\n        WAIT          * Halt program\n"
+                        .to_string(),
+                },
+                TutorialSection::Quiz {
+                    title: "Check Your Understanding".to_string(),
+                    questions: vec![
+                        QuizQuestion::MultipleChoice {
+                            question: "What does the LD instruction do?".to_string(),
+                            options: vec![
+                                "Load a value into the accumulator".to_string(),
+                                "Store a value to memory".to_string(),
+                                "Load disk data".to_string(),
+                            ],
+                            correct_index: 0,
+                        },
+                        QuizQuestion::TrueFalse {
+                            question: "The IBM 1130 uses a 32-bit word architecture".to_string(),
+                            correct_answer: false,
+                        },
+                    ],
+                },
+            ],
+        ),
+        TutorialWithContent::new(
+            {
+                let mut t = Tutorial::new(
+                    "first-program",
+                    "Writing Your First Program",
+                    TutorialCategory::ProgrammingBasics,
+                    Difficulty::Beginner,
+                );
+                t.estimated_minutes = 15;
+                t.learning_objectives = vec![
+                    "Write a complete program".to_string(),
+                    "Understand memory operations".to_string(),
+                ];
+                t.prerequisites = vec!["welcome".to_string()];
+                t.available = true;
+                t
+            },
+            vec![
+                TutorialSection::Theory {
+                    title: "Program Structure".to_string(),
+                    content: r#"A complete IBM 1130 program has:
+
+1. Instructions - Commands for the CPU
+2. Data declarations - Initial values and storage
+3. Halt instruction - Stop the program
+
+Comments start with * (asterisk).
+
+Example program structure:
+        LD   100      * Load value
+        STO  200      * Store result
+        WAIT          * Halt"#
+                        .to_string(),
+                },
+                TutorialSection::HandsOn {
+                    title: "Write a Complete Program".to_string(),
+                    instructions: "Write a program that:\n1. Loads the value 10\n2. Stores it to memory address 100\n3. Halts"
+                        .to_string(),
+                    starter_code: "        * Complete program\n        WAIT\n".to_string(),
+                    hints: vec!["Use LD =10 to load 10, STO 100 to store it".to_string()],
+                    solution: "        LD   =10      * Load literal 10\n        STO  100      * Store to address 100\n        WAIT          * Halt\n"
+                        .to_string(),
+                },
+            ],
+        ),
+        TutorialWithContent::new(
+            {
+                let mut t = Tutorial::new(
+                    "arithmetic-ops",
+                    "Arithmetic Operations",
+                    TutorialCategory::ProgrammingBasics,
+                    Difficulty::Intermediate,
+                );
+                t.estimated_minutes = 20;
+                t.learning_objectives = vec![
+                    "Perform arithmetic operations".to_string(),
+                    "Work with the accumulator and extension".to_string(),
+                ];
+                t.prerequisites = vec!["first-program".to_string()];
+                t.available = true;
+                t
+            },
+            vec![TutorialSection::Theory {
+                title: "Arithmetic Instructions".to_string(),
+                content: r#"The IBM 1130 provides several arithmetic instructions:
+
+ADD - Add to accumulator
+SUB - Subtract from accumulator
+MPY - Multiply (result in ACC+EXT)
+DIV - Divide (quotient in ACC, remainder in EXT)
+
+Example:
+        LD   A         * Load first number
+        ADD  B         * Add second number
+        STO  RESULT    * Store sum
+        WAIT
+
+A       DC   10
+B       DC   20
+RESULT  BSS  1"#
+                    .to_string(),
+            }],
+        ),
+        TutorialWithContent::new(
+            {
+                let mut t = Tutorial::new(
+                    "advanced-indexing",
+                    "Advanced Addressing with Index Registers",
+                    TutorialCategory::AdvancedTopics,
+                    Difficulty::Advanced,
+                );
+                t.estimated_minutes = 30;
+                t.learning_objectives = vec![
+                    "Master indirect and indexed addressing".to_string(),
+                    "Use multiple index registers efficiently".to_string(),
+                ];
+                t.prerequisites = vec!["arithmetic-ops".to_string()];
+                t.available = false;
+                t
+            },
+            vec![TutorialSection::Theory {
+                title: "Index Registers".to_string(),
+                content: "Advanced topic - coming soon!".to_string(),
+            }],
+        ),
+    ]
+}
 
 #[function_component(Learn)]
 pub fn learn() -> Html {
-    // Initialize learning progress (will be persisted to localStorage in future phases)
+    // Initialize learning progress
     let progress = use_state(LearningProgress::new);
+    let selected_tutorial = use_state(|| Option::<String>::None);
 
-    // Sample tutorial categories to display
-    let tutorial_categories = [
-        TutorialCategory::GettingStarted,
-        TutorialCategory::ProgrammingBasics,
-        TutorialCategory::DeviceOperations,
-        TutorialCategory::AdvancedTopics,
-    ];
+    // Get sample tutorials
+    let all_tutorials = create_sample_tutorials();
+    let tutorial_metadata: Vec<Tutorial> =
+        all_tutorials.iter().map(|t| t.metadata.clone()).collect();
 
-    // Sample challenge categories to display
-    let challenge_categories = [
-        ChallengeCategory::CodeGolf,
-        ChallengeCategory::SpeedRuns,
-        ChallengeCategory::ResourceManagement,
-        ChallengeCategory::RealWorldProblems,
-    ];
+    // Handle tutorial selection
+    let on_tutorial_select = {
+        let selected_tutorial = selected_tutorial.clone();
+        Callback::from(move |tutorial_id: String| {
+            selected_tutorial.set(Some(tutorial_id));
+        })
+    };
 
-    // Sample tutorials (will be loaded from JSON in future phases)
-    let sample_tutorials = [
-        Tutorial::new(
-            "welcome",
-            "Welcome to the IBM 1130",
-            TutorialCategory::GettingStarted,
-            Difficulty::Beginner,
-        ),
-        Tutorial::new(
-            "first-program",
-            "Your First Program",
-            TutorialCategory::ProgrammingBasics,
-            Difficulty::Beginner,
-        ),
-    ];
+    // Handle tutorial completion
+    let on_tutorial_complete = {
+        let progress = progress.clone();
+        let selected_tutorial = selected_tutorial.clone();
+        Callback::from(move |tutorial_id: String| {
+            let mut p = (*progress).clone();
+            p.complete_tutorial(tutorial_id);
+            progress.set(p);
+            selected_tutorial.set(None);
+        })
+    };
 
-    // Sample challenges (will be loaded from JSON in future phases)
-    let sample_challenges = [
-        Challenge::new(
-            "hello-world",
-            "Hello World",
-            ChallengeCategory::RealWorldProblems,
-            Difficulty::Beginner,
-            50,
-        ),
-        Challenge::new(
-            "sum-array",
-            "Sum an Array",
-            ChallengeCategory::RealWorldProblems,
-            Difficulty::Beginner,
-            100,
-        ),
-    ];
+    // Handle back to browser
+    let on_back = {
+        let selected_tutorial = selected_tutorial.clone();
+        Callback::from(move |_| {
+            selected_tutorial.set(None);
+        })
+    };
 
     html! {
-        <div class="learn-content">
-            <section class="learn-section">
-                <h2>{ "Learn IBM 1130 Programming" }</h2>
-                <p>
-                    { "Welcome to the interactive learning environment! This section provides " }
-                    { "guided tutorials and hands-on challenges to help you master IBM 1130 " }
-                    { "programming and system operation." }
-                </p>
-                <p>
-                    { format!("Current Progress: {} tutorials completed, {} points earned",
-                        progress.completed_tutorials.len(),
-                        progress.total_points) }
-                </p>
-            </section>
-
-            <section class="learn-section">
-                <h3>{ "Tutorial Categories" }</h3>
-                <ul class="feature-list">
-                    {
-                        tutorial_categories.iter().map(|category| {
-                            html! {
-                                <li>{ category.display_name() }</li>
-                            }
-                        }).collect::<Html>()
+        <div class="learn-container">
+            {
+                if let Some(tutorial_id) = (*selected_tutorial).as_ref() {
+                    // Show tutorial viewer
+                    if let Some(tutorial) = all_tutorials.iter().find(|t| &t.metadata.id == tutorial_id) {
+                        html! {
+                            <TutorialViewer
+                                tutorial={tutorial.clone()}
+                                on_complete={on_tutorial_complete}
+                                on_back={on_back}
+                            />
+                        }
+                    } else {
+                        html! { <p>{ "Tutorial not found" }</p> }
                     }
-                </ul>
-                <div class="coming-soon">
-                    <p>{ format!("{} sample tutorials available", sample_tutorials.len()) }</p>
-                    {
-                        // Show completion status for sample tutorials
-                        sample_tutorials.iter().map(|tutorial| {
-                            let is_completed = progress.is_tutorial_completed(&tutorial.id);
-                            let status = if is_completed { "✓ Completed" } else { "Not started" };
-                            html! {
-                                <p>{ format!("{}: {}", tutorial.title, status) }</p>
-                            }
-                        }).collect::<Html>()
+                } else {
+                    // Show tutorial browser
+                    html! {
+                        <>
+                            <div class="learn-header">
+                                <h2>{ "Learn IBM 1130 Programming" }</h2>
+                                <p>
+                                    { "Interactive tutorials with theory, hands-on exercises, and quizzes. " }
+                                    { format!("You've completed {} tutorials", progress.completed_tutorials.len()) }
+                                </p>
+                            </div>
+                            <TutorialBrowser
+                                tutorials={tutorial_metadata}
+                                progress={(*progress).clone()}
+                                on_select={on_tutorial_select}
+                            />
+                        </>
                     }
-                    <p>{ "Full tutorial browser coming soon..." }</p>
-                </div>
-            </section>
-
-            <section class="learn-section">
-                <h3>{ "Challenge Categories" }</h3>
-                <ul class="feature-list">
-                    {
-                        challenge_categories.iter().map(|category| {
-                            html! {
-                                <li>{ category.display_name() }</li>
-                            }
-                        }).collect::<Html>()
-                    }
-                </ul>
-                <div class="coming-soon">
-                    <p>{ format!("{} sample challenges available", sample_challenges.len()) }</p>
-                    {
-                        // Show completion status and scores for sample challenges
-                        sample_challenges.iter().map(|challenge| {
-                            let score_text = if let Some(score) = progress.get_challenge_score(&challenge.id) {
-                                format!("✓ Completed - {} points", score)
-                            } else if progress.is_challenge_completed(&challenge.id) {
-                                "✓ Completed".to_string()
-                            } else {
-                                "Not started".to_string()
-                            };
-                            html! {
-                                <p>{ format!("{}: {}", challenge.title, score_text) }</p>
-                            }
-                        }).collect::<Html>()
-                    }
-                    <p>{ "Full challenge system coming soon..." }</p>
-                </div>
-            </section>
-
-            <section class="learn-section">
-                <h3>{ "Difficulty Levels" }</h3>
-                <ul class="feature-list">
-                    <li>{ format!("{} - Perfect for first-time users", Difficulty::Beginner.display_name()) }</li>
-                    <li>{ format!("{} - For those with basic understanding", Difficulty::Intermediate.display_name()) }</li>
-                    <li>{ format!("{} - Expert-level challenges", Difficulty::Advanced.display_name()) }</li>
-                </ul>
-            </section>
-
-            <section class="learn-section">
-                <h3>{ "Demo: Progress Tracking" }</h3>
-                <p>{ "Try out the progress tracking system (for demonstration purposes):" }</p>
-                <div>
-                    <button
-                        onclick={{
-                            let progress = progress.clone();
-                            Callback::from(move |_| {
-                                let mut p = (*progress).clone();
-                                p.complete_tutorial("welcome".to_string());
-                                progress.set(p);
-                            })
-                        }}
-                    >
-                        { "Complete 'Welcome' Tutorial" }
-                    </button>
-                    {" "}
-                    <button
-                        onclick={{
-                            let progress = progress.clone();
-                            Callback::from(move |_| {
-                                let mut p = (*progress).clone();
-                                p.complete_challenge("hello-world".to_string(), 50);
-                                progress.set(p);
-                            })
-                        }}
-                    >
-                        { "Complete 'Hello World' Challenge" }
-                    </button>
-                    {" "}
-                    <button
-                        onclick={{
-                            let progress = progress.clone();
-                            Callback::from(move |_| {
-                                progress.set(LearningProgress::new());
-                            })
-                        }}
-                    >
-                        { "Reset Progress" }
-                    </button>
-                </div>
-            </section>
+                }
+            }
         </div>
     }
 }
