@@ -6,12 +6,12 @@ This directory contains placeholder demo content for the IBM 1130 emulator web U
 
 ```
 data/
-├── demos/                  # TOML files describing demo programs
-│   ├── apl_matrix_operations.toml
-│   ├── forth_hello_world.toml
-│   └── ...
-├── README.md              # This file
-└── LICENSE_REVIEW.md      # License considerations for third-party software
++-- demos/                  # TOML files describing demo programs
+| +-- apl_matrix_operations.toml
+| +-- forth_hello_world.toml
+| +-- ...
++-- README.md              # This file
++-- LICENSE_REVIEW.md      # License considerations for third-party software
 ```
 
 ## About the Demo Content

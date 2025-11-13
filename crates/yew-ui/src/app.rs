@@ -2,7 +2,9 @@ use crate::views::{
     demos::Demos,
     hardware::{Hardware, HardwareDevice},
     header_nav::{HeaderNav, Tab},
+    learn::Learn,
     overview::Overview,
+    playground::Playground,
     reference::Reference,
 };
 use yew::prelude::*;
@@ -40,6 +42,8 @@ pub fn app() -> Html {
                             />
                         },
                         Tab::Demos => html! { <Demos /> },
+                        Tab::Learn => html! { <Learn /> },
+                        Tab::Playground => html! { <Playground /> },
                         Tab::Reference => html! { <Reference /> },
                     }
                 }

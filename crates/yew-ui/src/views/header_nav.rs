@@ -5,6 +5,8 @@ pub enum Tab {
     Overview,
     Hardware,
     Demos,
+    Learn,
+    Playground,
     Reference,
 }
 
@@ -29,6 +31,16 @@ pub fn header_nav(props: &HeaderNavProps) -> Html {
     let on_demos_click = {
         let on_tab_change = props.on_tab_change.clone();
         Callback::from(move |_| on_tab_change.emit(Tab::Demos))
+    };
+
+    let on_learn_click = {
+        let on_tab_change = props.on_tab_change.clone();
+        Callback::from(move |_| on_tab_change.emit(Tab::Learn))
+    };
+
+    let on_playground_click = {
+        let on_tab_change = props.on_tab_change.clone();
+        Callback::from(move |_| on_tab_change.emit(Tab::Playground))
     };
 
     let on_reference_click = {
@@ -58,6 +70,18 @@ pub fn header_nav(props: &HeaderNavProps) -> Html {
                         onclick={on_demos_click}
                     >
                         { "Demos" }
+                    </button>
+                    <button
+                        class={classes!("nav-tab", (props.current_tab == Tab::Learn).then_some("active"))}
+                        onclick={on_learn_click}
+                    >
+                        { "Learn" }
+                    </button>
+                    <button
+                        class={classes!("nav-tab", (props.current_tab == Tab::Playground).then_some("active"))}
+                        onclick={on_playground_click}
+                    >
+                        { "Playground" }
                     </button>
                     <button
                         class={classes!("nav-tab", (props.current_tab == Tab::Reference).then_some("active"))}

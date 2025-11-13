@@ -29,11 +29,12 @@
 /// let timing = TimingModel::fast(10.0);
 /// assert_eq!(timing.delay_us(1000), 100);
 /// ```
-#[derive(Debug, Clone, Copy, PartialEq)]
+#[derive(Debug, Clone, Copy, PartialEq, Default)]
 pub enum TimingModel {
     /// No timing delays (instant operations for testing)
     None,
     /// Historical 1x timing matching IBM 1130 specifications
+    #[default]
     Realistic,
     /// Accelerated timing (multiplier > 1.0 means faster)
     Fast(f64),
@@ -105,12 +106,6 @@ impl TimingModel {
             TimingModel::Realistic => nominal_us,
             TimingModel::Fast(multiplier) => ((nominal_us as f64) / multiplier) as u64,
         }
-    }
-}
-
-impl Default for TimingModel {
-    fn default() -> Self {
-        Self::Realistic
     }
 }
 

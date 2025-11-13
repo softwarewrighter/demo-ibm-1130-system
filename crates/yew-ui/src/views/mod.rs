@@ -5,6 +5,8 @@ pub mod demos;
 pub mod disk_map;
 pub mod hardware;
 pub mod header_nav;
+pub mod learn;
 pub mod overview;
+pub mod playground;
 pub mod reference;
 pub mod status_bar;
