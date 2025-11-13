@@ -1,4 +1,5 @@
 //! Educational content models for tutorials, challenges, and learning progress.
+use std::collections::HashMap;
 
 /// Difficulty level for educational content
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -40,6 +41,25 @@ impl TutorialCategory {
     }
 }
 
+/// Category for challenges
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
+pub enum ChallengeCategory {
+    Programming,
+    Optimization,
+    Debugging,
+}
+
+impl ChallengeCategory {
+    /// Get display name for challenge category
+    pub fn display_name(&self) -> &'static str {
+        match self {
+            ChallengeCategory::Programming => "Programming Challenges",
+            ChallengeCategory::Optimization => "Optimization Challenges",
+            ChallengeCategory::Debugging => "Debugging Challenges",
+        }
+    }
+}
+
 /// Tutorial metadata
 #[derive(Clone, Debug, PartialEq)]
 pub struct Tutorial {
@@ -74,10 +94,61 @@ impl Tutorial {
     }
 }
 
+/// Challenge metadata
+#[derive(Clone, Debug, PartialEq)]
+pub struct Challenge {
+    pub id: String,
+    pub title: String,
+    pub description: String,
+    pub category: ChallengeCategory,
+    pub difficulty: Difficulty,
+    pub points: u16,
+    pub time_limit_seconds: Option<u32>,
+    pub test_cases: Vec<TestCase>,
+    pub starter_code: String,
+    pub available: bool,
+}
+
+/// Test case for challenge validation
+#[derive(Clone, Debug, PartialEq)]
+pub struct TestCase {
+    pub name: String,
+    pub description: String,
+    pub expected_output: String,
+    pub is_hidden: bool,
+}
+
+impl Challenge {
+    /// Create a new challenge
+    pub fn new(
+        id: impl Into<String>,
+        title: impl Into<String>,
+        category: ChallengeCategory,
+        difficulty: Difficulty,
+        points: u16,
+    ) -> Self {
+        Self {
+            id: id.into(),
+            title: title.into(),
+            description: String::new(),
+            category,
+            difficulty,
+            points,
+            time_limit_seconds: None,
+            test_cases: Vec::new(),
+            starter_code: String::new(),
+            available: false,
+        }
+    }
+}
+
 /// User's learning progress
 #[derive(Clone, Debug, PartialEq, Default)]
 pub struct LearningProgress {
     pub completed_tutorials: Vec<String>,
+    pub completed_challenges: Vec<String>,
+    pub challenge_scores: HashMap<String, u16>,
+    pub total_points: u16,
 }
 
 impl LearningProgress {
@@ -96,6 +167,38 @@ impl LearningProgress {
         if !self.completed_tutorials.contains(&tutorial_id) {
             self.completed_tutorials.push(tutorial_id);
         }
+    }
+
+    /// Check if challenge is completed
+    pub fn is_challenge_completed(&self, challenge_id: &str) -> bool {
+        self.completed_challenges
+            .contains(&challenge_id.to_string())
+    }
+
+    /// Mark challenge as completed with score
+    pub fn complete_challenge(&mut self, challenge_id: String, score: u16) {
+        if !self.completed_challenges.contains(&challenge_id) {
+            self.completed_challenges.push(challenge_id.clone());
+        }
+
+        // Update score if better than previous
+        let current_score = self
+            .challenge_scores
+            .get(&challenge_id)
+            .copied()
+            .unwrap_or(0);
+        if score > current_score {
+            self.challenge_scores.insert(challenge_id, score);
+            self.total_points = self
+                .total_points
+                .saturating_sub(current_score)
+                .saturating_add(score);
+        }
+    }
+
+    /// Get challenge score
+    pub fn get_challenge_score(&self, challenge_id: &str) -> Option<u16> {
+        self.challenge_scores.get(challenge_id).copied()
     }
 }
 
@@ -176,6 +279,22 @@ mod tests {
     }
 
     #[test]
+    fn test_challenge_category_display_name() {
+        assert_eq!(
+            ChallengeCategory::Programming.display_name(),
+            "Programming Challenges"
+        );
+        assert_eq!(
+            ChallengeCategory::Optimization.display_name(),
+            "Optimization Challenges"
+        );
+        assert_eq!(
+            ChallengeCategory::Debugging.display_name(),
+            "Debugging Challenges"
+        );
+    }
+
+    #[test]
     fn test_tutorial_creation() {
         let tutorial = Tutorial::new(
             "tutorial-1",
@@ -192,6 +311,24 @@ mod tests {
     }
 
     #[test]
+    fn test_challenge_creation() {
+        let challenge = Challenge::new(
+            "challenge-1",
+            "Test Challenge",
+            ChallengeCategory::Programming,
+            Difficulty::Intermediate,
+            100,
+        );
+        assert_eq!(challenge.id, "challenge-1");
+        assert_eq!(challenge.title, "Test Challenge");
+        assert_eq!(challenge.category, ChallengeCategory::Programming);
+        assert_eq!(challenge.difficulty, Difficulty::Intermediate);
+        assert_eq!(challenge.points, 100);
+        assert!(!challenge.available);
+        assert!(challenge.test_cases.is_empty());
+    }
+
+    #[test]
     fn test_learning_progress_tutorial_completion() {
         let mut progress = LearningProgress::new();
         assert!(!progress.is_tutorial_completed("tutorial-1"));
@@ -202,6 +339,44 @@ mod tests {
         // Should not duplicate
         progress.complete_tutorial("tutorial-1".to_string());
         assert_eq!(progress.completed_tutorials.len(), 1);
+    }
+
+    #[test]
+    fn test_learning_progress_challenge_completion() {
+        let mut progress = LearningProgress::new();
+        assert!(!progress.is_challenge_completed("challenge-1"));
+
+        progress.complete_challenge("challenge-1".to_string(), 100);
+        assert!(progress.is_challenge_completed("challenge-1"));
+        assert_eq!(progress.get_challenge_score("challenge-1"), Some(100));
+        assert_eq!(progress.total_points, 100);
+    }
+
+    #[test]
+    fn test_learning_progress_challenge_score_update() {
+        let mut progress = LearningProgress::new();
+
+        // Complete with initial score
+        progress.complete_challenge("challenge-1".to_string(), 100);
+        assert_eq!(progress.total_points, 100);
+
+        // Update with better score
+        progress.complete_challenge("challenge-1".to_string(), 150);
+        assert_eq!(progress.get_challenge_score("challenge-1"), Some(150));
+        assert_eq!(progress.total_points, 150);
+        assert_eq!(progress.completed_challenges.len(), 1); // Should not duplicate
+    }
+
+    #[test]
+    fn test_learning_progress_challenge_score_no_downgrade() {
+        let mut progress = LearningProgress::new();
+
+        progress.complete_challenge("challenge-1".to_string(), 150);
+        progress.complete_challenge("challenge-1".to_string(), 100); // Lower score
+
+        // Should keep higher score
+        assert_eq!(progress.get_challenge_score("challenge-1"), Some(150));
+        assert_eq!(progress.total_points, 150);
     }
 
     #[test]

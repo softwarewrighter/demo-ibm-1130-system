@@ -1,4 +1,5 @@
 use crate::views::{
+    challenges::Challenges,
     demos::Demos,
     hardware::{Hardware, HardwareDevice},
     header_nav::{HeaderNav, Tab},
@@ -43,6 +44,7 @@ pub fn app() -> Html {
                         },
                         Tab::Demos => html! { <Demos /> },
                         Tab::Learn => html! { <Learn /> },
+                        Tab::Challenges => html! { <Challenges /> },
                         Tab::Playground => html! { <Playground /> },
                         Tab::Reference => html! { <Reference /> },
                     }

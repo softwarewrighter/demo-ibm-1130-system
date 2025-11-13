@@ -1,4 +1,7 @@
 pub mod card_reader;
+pub mod challenge_browser;
+pub mod challenge_viewer;
+pub mod challenges;
 pub mod console;
 pub mod demo_viewer;
 pub mod demos;
