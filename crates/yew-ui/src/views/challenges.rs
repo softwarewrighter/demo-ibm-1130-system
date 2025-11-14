@@ -124,6 +124,223 @@ fn create_sample_challenges() -> Vec<Challenge> {
             c.available = false; // Locked until prerequisites met
             c
         },
+        {
+            let mut c = Challenge::new(
+                "multiplication-table",
+                "Multiplication Table",
+                ChallengeCategory::Programming,
+                Difficulty::Intermediate,
+                120,
+            );
+            c.description =
+                "Create a program that multiplies 7 by 8 and outputs the result (56).".to_string();
+            c.starter_code = "        * Multiply 7 * 8\n        WAIT\n".to_string();
+            c.test_cases = vec![TestCase {
+                name: "Multiplication Test".to_string(),
+                description: "Program should output '56'".to_string(),
+                expected_output: "56".to_string(),
+                is_hidden: false,
+            }];
+            c.available = true;
+            c
+        },
+        {
+            let mut c = Challenge::new(
+                "conditional-max",
+                "Find Maximum Value",
+                ChallengeCategory::Programming,
+                Difficulty::Intermediate,
+                130,
+            );
+            c.description = "Write a program that finds the maximum of two numbers: 42 and 37. Output the larger value."
+                .to_string();
+            c.starter_code = "        * Find max of 42 and 37\n        WAIT\n".to_string();
+            c.test_cases = vec![TestCase {
+                name: "Maximum Test".to_string(),
+                description: "Program should output '42'".to_string(),
+                expected_output: "42".to_string(),
+                is_hidden: false,
+            }];
+            c.available = true;
+            c
+        },
+        {
+            let mut c = Challenge::new(
+                "optimize-sum",
+                "Optimized Summation",
+                ChallengeCategory::Optimization,
+                Difficulty::Intermediate,
+                140,
+            );
+            c.description =
+                "Sum the numbers 1 through 5 using the fewest instructions possible.".to_string();
+            c.starter_code = "        * Sum 1+2+3+4+5\n        WAIT\n".to_string();
+            c.time_limit_seconds = Some(45);
+            c.test_cases = vec![
+                TestCase {
+                    name: "Correctness Test".to_string(),
+                    description: "Program should output '15'".to_string(),
+                    expected_output: "15".to_string(),
+                    is_hidden: false,
+                },
+                TestCase {
+                    name: "Efficiency Test".to_string(),
+                    description: "Should use minimal instructions".to_string(),
+                    expected_output: "15".to_string(),
+                    is_hidden: true,
+                },
+            ];
+            c.available = true;
+            c
+        },
+        {
+            let mut c = Challenge::new(
+                "optimize-multiply",
+                "Fast Multiplication by Powers of 2",
+                ChallengeCategory::Optimization,
+                Difficulty::Advanced,
+                180,
+            );
+            c.description = "Multiply a number by 16 using shifts instead of MPY instruction. Input: 5, Output: 80."
+                .to_string();
+            c.starter_code = "        * Multiply 5 by 16 using shifts\n        WAIT\n".to_string();
+            c.time_limit_seconds = Some(90);
+            c.test_cases = vec![TestCase {
+                name: "Shift Optimization Test".to_string(),
+                description: "Program should output '80'".to_string(),
+                expected_output: "80".to_string(),
+                is_hidden: false,
+            }];
+            c.available = true;
+            c
+        },
+        {
+            let mut c = Challenge::new(
+                "debug-division",
+                "Fix Division by Zero",
+                ChallengeCategory::Debugging,
+                Difficulty::Intermediate,
+                110,
+            );
+            c.description = "The program attempts to divide 100 by 0, causing an error. Fix it to divide by 4 instead."
+                .to_string();
+            c.starter_code = r#"        LD   =100
+        DIV  =0        * Bug: Division by zero!
+        WAIT
+"#
+            .to_string();
+            c.test_cases = vec![TestCase {
+                name: "Division Fix Test".to_string(),
+                description: "Program should output '25' (100/4)".to_string(),
+                expected_output: "25".to_string(),
+                is_hidden: false,
+            }];
+            c.available = true;
+            c
+        },
+        {
+            let mut c = Challenge::new(
+                "debug-loop-error",
+                "Fix Infinite Loop",
+                ChallengeCategory::Debugging,
+                Difficulty::Advanced,
+                160,
+            );
+            c.description =
+                "This loop is supposed to count down from 3 to 1, but has a bug. Fix it!"
+                    .to_string();
+            c.starter_code = r#"LOOP    LD   COUNT
+        ADD  =1        * Bug: Should be SUB!
+        STO  COUNT
+        BSC  L,LOOP
+        WAIT
+
+COUNT   DC   3
+"#
+            .to_string();
+            c.test_cases = vec![TestCase {
+                name: "Loop Fix Test".to_string(),
+                description: "Program should count down: 3, 2, 1".to_string(),
+                expected_output: "3 2 1".to_string(),
+                is_hidden: false,
+            }];
+            c.available = true;
+            c
+        },
+        {
+            let mut c = Challenge::new(
+                "string-length",
+                "Count Characters",
+                ChallengeCategory::Programming,
+                Difficulty::Beginner,
+                85,
+            );
+            c.description =
+                "Count the number of characters in 'IBM' (3 characters) and output the count."
+                    .to_string();
+            c.starter_code = "        * Count characters in 'IBM'\n        WAIT\n".to_string();
+            c.test_cases = vec![TestCase {
+                name: "Character Count Test".to_string(),
+                description: "Program should output '3'".to_string(),
+                expected_output: "3".to_string(),
+                is_hidden: false,
+            }];
+            c.available = true;
+            c
+        },
+        {
+            let mut c = Challenge::new(
+                "fibonacci",
+                "Fibonacci Sequence",
+                ChallengeCategory::Programming,
+                Difficulty::Advanced,
+                220,
+            );
+            c.description =
+                "Calculate the 7th Fibonacci number (0, 1, 1, 2, 3, 5, 8, 13). Output: 13."
+                    .to_string();
+            c.starter_code = "        * Calculate 7th Fibonacci number\n        WAIT\n".to_string();
+            c.test_cases = vec![
+                TestCase {
+                    name: "Fibonacci Test".to_string(),
+                    description: "Program should output '13'".to_string(),
+                    expected_output: "13".to_string(),
+                    is_hidden: false,
+                },
+                TestCase {
+                    name: "Correctness Test".to_string(),
+                    description: "Verify calculation method".to_string(),
+                    expected_output: "13".to_string(),
+                    is_hidden: true,
+                },
+            ];
+            c.available = true;
+            c
+        },
+        {
+            let mut c = Challenge::new(
+                "debug-store-error",
+                "Missing Store Instruction",
+                ChallengeCategory::Debugging,
+                Difficulty::Beginner,
+                90,
+            );
+            c.description = "The program loads 99 but never stores it. Add the missing STO instruction to save it to address 200."
+                .to_string();
+            c.starter_code = r#"        LD   =99
+        * Bug: Missing STO 200
+        WAIT
+"#
+            .to_string();
+            c.test_cases = vec![TestCase {
+                name: "Store Fix Test".to_string(),
+                description: "Program should store 99".to_string(),
+                expected_output: "99".to_string(),
+                is_hidden: false,
+            }];
+            c.available = true;
+            c
+        },
     ]
 }
 
