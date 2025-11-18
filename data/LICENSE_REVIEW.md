@@ -127,15 +127,15 @@ For this project to remain MIT-licensed and commercially usable:
 
 ```
 data/decks/apl/
-  apl_source.zip          [!] License unclear
-  aplsetup.zip            [!] License unclear
-  aplpreview.zip          [!] License unclear
-  source/                 [!] License unclear
-  binary/                 [!] License unclear
-  apl1130.toml            [OK] Our metadata (MIT)
++-- apl_source.zip          [!] License unclear
++-- aplsetup.zip            [!] License unclear
++-- aplpreview.zip          [!] License unclear
++-- source/                 [!] License unclear
++-- binary/                 [!] License unclear
++-- apl1130.toml           [OK] Our metadata (MIT)
 
 data/decks/forth/
-  source/1968-FORTH/      [X] NO LICENSE - DO NOT COMMIT
++-- source/1968-FORTH/     [X] NO LICENSE - DO NOT COMMIT
 
 data/decks/metadata_template.toml  [OK] Our work (MIT)
 ```
@@ -147,7 +147,7 @@ but will NOT redistribute it in the git repository.
 
 ### Implementation:
 
-1. **Downloaded software to `./tmp/` directory (gitignored)** [OK]
+1. **Downloaded software -> `./tmp/` directory (gitignored)** [OK]
    - Not tracked in git
    - Local development only
    - Downloaded via manual process or utility scripts
@@ -173,21 +173,21 @@ but will NOT redistribute it in the git repository.
 
 ```
 data/
-  demos/
-    apl_matrix_operations.toml  [OK] MIT (our metadata)
-    forth_hello_world.toml      [OK] MIT (our metadata)
-  README.md                     [OK] MIT (our docs)
-  LICENSE_REVIEW.md             [OK] MIT (this file)
++-- demos/
+    +-- apl_matrix_operations.toml  [OK] MIT (our metadata)
+    +-- forth_hello_world.toml      [OK] MIT (our metadata)
++-- README.md                        [OK] MIT (our docs)
++-- LICENSE_REVIEW.md               [OK] MIT (this file)
 
-.gitignore                      [OK] Includes /tmp
+.gitignore                           [OK] Includes /tmp
 ```
 
 ### Files NOT Committed (Local Only):
 
 ```
 tmp/downloads/                       [X] Gitignored
-  apl/                               [X] Downloaded locally
-  forth/                             [X] Downloaded locally
++-- apl/                            [X] Downloaded locally
++-- forth/                          [X] Downloaded locally
 ```
 
 ## Legal Basis: Fair Use (17 U.S.C. Section 107)
