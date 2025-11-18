@@ -1,7 +1,7 @@
 # License Review for Downloaded IBM 1130 Software
 
 **Date:** 2025-10-31
-**Status:** ⚠️ REQUIRES REVIEW - Do not commit until resolved
+**Status:** [!] REQUIRES REVIEW - Do not commit until resolved
 
 ## Summary
 
@@ -9,8 +9,8 @@ Two software packages were downloaded for demo/educational purposes. License sta
 
 | Software | Source | License Status | Risk Level |
 |----------|--------|----------------|------------|
-| APL\1130 | ibm1130.org | Unclear - Historical preservation | ⚠️ Medium |
-| 1968-FORTH | GitHub (monsonite) | **NO LICENSE** | 🔴 High |
+| APL\1130 | ibm1130.org | Unclear - Historical preservation | [!] Medium |
+| 1968-FORTH | GitHub (monsonite) | **NO LICENSE** | [X] High |
 
 ## Detailed Findings
 
@@ -127,32 +127,32 @@ For this project to remain MIT-licensed and commercially usable:
 
 ```
 data/decks/apl/
-├── apl_source.zip          ⚠️ License unclear
-├── aplsetup.zip            ⚠️ License unclear
-├── aplpreview.zip          ⚠️ License unclear
-├── source/                 ⚠️ License unclear
-├── binary/                 ⚠️ License unclear
-└── apl1130.toml           ✅ Our metadata (MIT)
+  apl_source.zip          [!] License unclear
+  aplsetup.zip            [!] License unclear
+  aplpreview.zip          [!] License unclear
+  source/                 [!] License unclear
+  binary/                 [!] License unclear
+  apl1130.toml            [OK] Our metadata (MIT)
 
 data/decks/forth/
-└── source/1968-FORTH/     🔴 NO LICENSE - DO NOT COMMIT
+  source/1968-FORTH/      [X] NO LICENSE - DO NOT COMMIT
 
-data/decks/metadata_template.toml  ✅ Our work (MIT)
+data/decks/metadata_template.toml  [OK] Our work (MIT)
 ```
 
-## Chosen Approach: Fair Use with No Redistribution ✅
+## Chosen Approach: Fair Use with No Redistribution [OK]
 
 **Decision:** We will use historical software under fair use for educational purposes,
 but will NOT redistribute it in the git repository.
 
 ### Implementation:
 
-1. **Downloaded software → `./tmp/` directory (gitignored)** ✅
+1. **Downloaded software to `./tmp/` directory (gitignored)** [OK]
    - Not tracked in git
    - Local development only
    - Downloaded via manual process or utility scripts
 
-2. **Placeholder metadata in `data/demos/`** ✅
+2. **Placeholder metadata in `data/demos/`** [OK]
    - TOML files describe demos
    - Include sample code for UI preview
    - Attribution to original authors
@@ -164,7 +164,7 @@ but will NOT redistribute it in the git repository.
    - Not selling or redistributing the software itself
    - Transformative use: emulator demonstration with educational commentary
 
-4. **Clear attribution** ✅
+4. **Clear attribution** [OK]
    - All original authors credited in demo metadata
    - Preservation contributors acknowledged
    - Links to original sources provided
@@ -173,24 +173,24 @@ but will NOT redistribute it in the git repository.
 
 ```
 data/
-├── demos/
-│   ├── apl_matrix_operations.toml  ✅ MIT (our metadata)
-│   └── forth_hello_world.toml      ✅ MIT (our metadata)
-├── README.md                        ✅ MIT (our docs)
-└── LICENSE_REVIEW.md               ✅ MIT (this file)
+  demos/
+    apl_matrix_operations.toml  [OK] MIT (our metadata)
+    forth_hello_world.toml      [OK] MIT (our metadata)
+  README.md                     [OK] MIT (our docs)
+  LICENSE_REVIEW.md             [OK] MIT (this file)
 
-.gitignore                           ✅ Includes /tmp
+.gitignore                      [OK] Includes /tmp
 ```
 
 ### Files NOT Committed (Local Only):
 
 ```
-tmp/downloads/                       ❌ Gitignored
-├── apl/                            ❌ Downloaded locally
-└── forth/                          ❌ Downloaded locally
+tmp/downloads/                       [X] Gitignored
+  apl/                               [X] Downloaded locally
+  forth/                             [X] Downloaded locally
 ```
 
-## Legal Basis: Fair Use (17 U.S.C. § 107)
+## Legal Basis: Fair Use (17 U.S.C. Section 107)
 
 Our use qualifies as fair use under all four factors:
 
@@ -215,14 +215,14 @@ This is analogous to: book reviews (monetized via ads) that quote from books,
 software tutorials (monetized) that demonstrate using other software, or
 educational videos (monetized) showing historical artifacts.
 
-## Next Steps ✅
+## Next Steps [OK]
 
 **Completed:**
-1. ✅ Moved downloads to `tmp/` directory
-2. ✅ Added `tmp/` to .gitignore
-3. ✅ Created placeholder demo metadata (TOML files)
-4. ✅ Documented download process in README.md
-5. ✅ Added clear attribution in all demo files
+1. [OK] Moved downloads to `tmp/` directory
+2. [OK] Added `tmp/` to .gitignore
+3. [OK] Created placeholder demo metadata (TOML files)
+4. [OK] Documented download process in README.md
+5. [OK] Added clear attribution in all demo files
 
 **Safe to commit:**
 - All MIT-licensed original work
